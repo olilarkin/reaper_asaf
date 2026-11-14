@@ -1,0 +1,107 @@
+name: Build
+
+# Builds every component on each push and pull request. Pushing a tag like v0.1.0 also publishes the
+# builds as a GitHub release.
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write   # to create the release
+
+env:
+  # modules/reaper-sdk is pinned to a local merge of WDL into the REAPER SDK, which exists on neither
+  # upstream repository, so it can't be checked out as a submodule here. Rebuild the same tree from
+  # the merge's two parents instead.
+  REAPER_SDK_COMMIT: 61cc0d4ada1e4d8438186ed8ba5e5f9d72b148b9
+  WDL_COMMIT: 6a67ec5788ca6ee252b19cd8071796db49d763a7
+
+jobs:
+  build:
+    runs-on: macos-15   # Apple silicon; the build scripts produce universal (arm64 + x86_64) binaries
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch SDKs
+        run: |
+          git -c url."https://github.com/".insteadOf="git@github.com:" submodule update --init --depth 1 modules/clap
+          fetch() { # url commit dir
+            git init -q "$3" && git -C "$3" remote add origin "$1"
+            git -C "$3" fetch -q --depth 1 origin "$2" && git -C "$3" checkout -q FETCH_HEAD
+          }
+          rm -rf modules/reaper-sdk && fetch https://github.com/justinfrankel/reaper-sdk.git "$REAPER_SDK_COMMIT" modules/reaper-sdk
+          fetch https://github.com/justinfrankel/WDL.git "$WDL_COMMIT" "$RUNNER_TEMP/wdl"
+          cp -R "$RUNNER_TEMP/wdl/WDL" modules/reaper-sdk/WDL
+          test -f modules/reaper-sdk/WDL/swell/swell.h && test -f modules/clap/include/clap/clap.h
+
+      - name: Toolchain
+        run: |
+          xcodebuild -version
+          xcrun swiftc --version
+
+      - name: Build ASAF.clap
+        run: asaf_clap/build.sh "$PWD/dist"
+
+      - name: Build reaper_asaf
+        run: reaper_asaf/build.sh "$PWD/dist"
+
+      - name: Build ASAFShim.component
+        run: |
+          shim/build.sh
+          cp -R shim/build/ASAFShim.component dist/
+
+      - name: Check the builds
+        run: |
+          lipo -archs dist/ASAF.clap/Contents/MacOS/ASAF | grep -q arm64
+          lipo -archs dist/ASAF.clap/Contents/MacOS/ASAF | grep -q x86_64
+          lipo -archs dist/reaper_asaf.dylib | grep -q x86_64
+          nm -gU dist/ASAF.clap/Contents/MacOS/ASAF | grep -q _clap_entry
+          nm -gU dist/reaper_asaf.dylib | grep -q _ReaperPluginEntry
+          test -f dist/ASAF.clap/Contents/Resources/params.json
+          codesign --verify dist/ASAF.clap dist/reaper_asaf.dylib dist/ASAFShim.component
+
+      - name: Package
+        run: |
+          VERSION="${GITHUB_REF_NAME//\//-}"
+          mkdir -p out
+          cd dist
+          # ditto keeps bundle structure, symlinks and code signatures intact
+          ditto -c -k --keepParent ASAF.clap "../out/ASAF-clap-$VERSION.zip"
+          ditto -c -k --keepParent ASAFShim.component "../out/ASAFShim-component-$VERSION.zip"
+          zip -q "../out/reaper_asaf-$VERSION.zip" reaper_asaf.dylib
+          cd ../templates
+          zip -q "../out/ASAF-REAPER-templates-$VERSION.zip" *.RPP
+          ls -la ../out
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: asaf-reaper
+          path: out/*.zip
+          if-no-files-found: error
+
+      - name: Publish release
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cat > notes.md <<'NOTES'
+          Builds for macOS 12 or later (universal; APAC export needs Apple silicon).
+
+          | File | Install to |
+          |---|---|
+          | `ASAF-clap-*.zip` | `~/Library/Audio/Plug-Ins/CLAP/` |
+          | `reaper_asaf-*.zip` | `~/Library/Application Support/REAPER/UserPlugins/` |
+          | `ASAF-REAPER-templates-*.zip` | `~/Library/Application Support/REAPER/ProjectTemplates/` |
+          | `ASAFShim-component-*.zip` | `~/Library/Audio/Plug-Ins/Components/` (optional; superseded by the CLAP plug-ins) |
+
+          These builds are ad-hoc signed, not notarised. After downloading, clear the quarantine flag
+          before first use, for example:
+
+              xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins/CLAP/ASAF.clap
+
+          Apple's ASAF AudioUnits must be installed separately. See the README.
+          NOTES
+          gh release create "$GITHUB_REF_NAME" out/*.zip --title "$GITHUB_REF_NAME" --notes-file notes.md --verify-tag

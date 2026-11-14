@@ -47,6 +47,12 @@ The templates in `templates/` are ready to use: copy the `.RPP` files to
 
 `shim/build.sh` builds the AudioUnit wrapper, if you want it.
 
+### Releases and CI
+
+`.github/workflows/build.yml` builds every component on each push. Pushing a tag such as `v0.1.0`
+also publishes the builds as a GitHub release. Release builds are ad-hoc signed, not notarised, so
+clear the quarantine flag after downloading (`xattr -dr com.apple.quarantine <file>`).
+
 ## Using it
 
 ### Plug-ins
