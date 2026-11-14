@@ -14,9 +14,9 @@ struct PanObject: Identifiable, Equatable {
 
     /// Position on the horizontal plane in metres: x = right, y = front.
     var plan: CGPoint {
-        let az = azimuth * .pi / 180, el = elevation * .pi / 180
-        let h = distance * cos(el)
-        return CGPoint(x: -sin(az) * h, y: cos(az) * h)
+        let az: Double = azimuth * Double.pi / 180, el: Double = elevation * Double.pi / 180
+        let h: Double = distance * cos(el)
+        return CGPoint(x: CGFloat(-sin(az) * h), y: CGFloat(cos(az) * h))
     }
 }
 
@@ -77,9 +77,10 @@ final class PannerModel: ObservableObject {
     /// Move an object to a point on the horizontal plane (metres), keeping its elevation.
     func move(_ id: Int, toPlan p: CGPoint) {
         guard let o = objects.first(where: { $0.id == id }) else { return }
-        let h = hypot(p.x, p.y)
-        let az = h < 1e-6 ? o.azimuth : atan2(-p.x, p.y) * 180 / .pi
-        let c = max(0.05, cos(o.elevation * .pi / 180))
+        let x = Double(p.x), y = Double(p.y)
+        let h: Double = (x * x + y * y).squareRoot()
+        let az: Double = h < 1e-6 ? o.azimuth : atan2(-x, y) * 180 / Double.pi
+        let c: Double = max(0.05, cos(o.elevation * Double.pi / 180))
         set(id, azimuth: az, distance: h / c)
     }
 
@@ -96,29 +97,32 @@ struct StageView: View {
 
     var body: some View {
         GeometryReader { geo in
-            let side = min(geo.size.width, geo.size.height)
+            let side: CGFloat = min(geo.size.width, geo.size.height)
             let centre = CGPoint(x: geo.size.width / 2, y: geo.size.height / 2)
-            let scale = (side / 2 - 22) / model.viewRadius   // points per metre
+            let reach: CGFloat = side / 2 - 22                          // stage radius in points
+            let scale: CGFloat = reach / CGFloat(model.viewRadius)      // points per metre
             ZStack {
                 Canvas { ctx, _ in
-                    let step = model.viewRadius <= 2 ? 0.5 : (model.viewRadius <= 5 ? 1 : 2)
-                    var r = step
-                    while r <= model.viewRadius + 1e-9 {
-                        let rect = CGRect(x: centre.x - r * scale, y: centre.y - r * scale, width: 2 * r * scale, height: 2 * r * scale)
+                    let radius: Double = model.viewRadius
+                    let step: Double = radius <= 2 ? 0.5 : (radius <= 5 ? 1.0 : 2.0)
+                    var r: Double = step
+                    while r <= radius + 1e-9 {
+                        let rr: CGFloat = CGFloat(r) * scale
                         let whole = abs(r.rounded() - r) < 1e-9
-                        ctx.stroke(Path(ellipseIn: rect), with: .color(.secondary.opacity(whole ? 0.45 : 0.2)), lineWidth: 1)
+                        ctx.stroke(Path(ellipseIn: CGRect(x: centre.x - rr, y: centre.y - rr, width: 2 * rr, height: 2 * rr)),
+                                   with: .color(.secondary.opacity(whole ? 0.45 : 0.2)), lineWidth: 1)
                         if whole {
                             ctx.draw(Text("\(Int(r)) m").font(.system(size: 9)).foregroundColor(.secondary),
-                                     at: CGPoint(x: centre.x + r * scale * 0.707 + 10, y: centre.y + r * scale * 0.707 + 6))
+                                     at: CGPoint(x: centre.x + rr * 0.707 + 10, y: centre.y + rr * 0.707 + 6))
                         }
                         r += step
                     }
                     var axes = Path()
-                    let reach = model.viewRadius * scale
                     axes.move(to: CGPoint(x: centre.x - reach, y: centre.y)); axes.addLine(to: CGPoint(x: centre.x + reach, y: centre.y))
                     axes.move(to: CGPoint(x: centre.x, y: centre.y - reach)); axes.addLine(to: CGPoint(x: centre.x, y: centre.y + reach))
                     ctx.stroke(axes, with: .color(.secondary.opacity(0.2)), lineWidth: 1)
-                    for (label, dx, dy) in [("Front", 0.0, -1.0), ("Back", 0.0, 1.0), ("L", -1.0, 0.0), ("R", 1.0, 0.0)] {
+                    let marks: [(String, CGFloat, CGFloat)] = [("Front", 0, -1), ("Back", 0, 1), ("L", -1, 0), ("R", 1, 0)]
+                    for (label, dx, dy) in marks {
                         ctx.draw(Text(label).font(.system(size: 10, weight: .medium)).foregroundColor(.secondary),
                                  at: CGPoint(x: centre.x + dx * (reach + 12), y: centre.y + dy * (reach + 11)))
                     }
@@ -129,7 +133,7 @@ struct StageView: View {
                 }
                 ForEach(model.objects) { o in
                     let p = o.plan
-                    let clamped = clamp(p, to: model.viewRadius)
+                    let clamped = clamp(p, to: CGFloat(model.viewRadius))
                     Puck(object: o, selected: model.selection == o.id, offstage: clamped != p)
                         .position(x: centre.x + clamped.x * scale, y: centre.y - clamped.y * scale)
                         .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .named("stage"))
@@ -145,8 +149,8 @@ struct StageView: View {
         }
     }
 
-    private func clamp(_ p: CGPoint, to radius: Double) -> CGPoint {
-        let h = hypot(p.x, p.y)
+    private func clamp(_ p: CGPoint, to radius: CGFloat) -> CGPoint {
+        let h: CGFloat = (p.x * p.x + p.y * p.y).squareRoot()
         return h <= radius ? p : CGPoint(x: p.x / h * radius, y: p.y / h * radius)
     }
 }
@@ -158,7 +162,7 @@ struct Puck: View {
 
     var body: some View {
         // Higher objects are drawn larger, lower ones smaller.
-        let size = 22 + 8 * object.elevation / 90
+        let size: CGFloat = CGFloat(22 + 8 * object.elevation / 90)
         ZStack {
             Circle().fill(object.color.opacity(object.enabled ? (offstage ? 0.45 : 0.9) : 0.25))
             Circle().strokeBorder(selected ? Color.primary : Color.black.opacity(0.35), lineWidth: selected ? 2.5 : 1)

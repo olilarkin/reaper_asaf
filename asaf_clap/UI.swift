@@ -221,29 +221,34 @@ struct ObjectStage: View {
 
     var body: some View {
         GeometryReader { geo in
-            let side = min(geo.size.width, geo.size.height)
+            let side: CGFloat = min(geo.size.width, geo.size.height)
             let centre = CGPoint(x: geo.size.width / 2, y: geo.size.height / 2)
-            let scale = (side / 2 - 20) / radius
-            let a = model.values[az] * .pi / 180, e = model.values[el] * .pi / 180
-            let h = model.values[dist] * cos(e)
-            let p = CGPoint(x: -sin(a) * h, y: cos(a) * h)
-            let shown = hypot(p.x, p.y) > radius ? CGPoint(x: p.x / hypot(p.x, p.y) * radius, y: p.y / hypot(p.x, p.y) * radius) : p
+            let reach: CGFloat = side / 2 - 20                 // stage radius in points
+            let scale: CGFloat = reach / CGFloat(radius)       // points per metre
+            let a: Double = model.values[az] * Double.pi / 180
+            let e: Double = model.values[el] * Double.pi / 180
+            let h: Double = model.values[dist] * cos(e)
+            let px: Double = -sin(a) * h, py: Double = cos(a) * h
+            let ph: Double = (px * px + py * py).squareRoot()
+            let onStage = ph <= radius
+            let sx: Double = onStage ? px : px / ph * radius, sy: Double = onStage ? py : py / ph * radius
             ZStack {
                 Canvas { ctx, _ in
-                    let step = radius <= 2 ? 0.5 : (radius <= 5 ? 1.0 : 2.0)
-                    var r = step
+                    let step: Double = radius <= 2 ? 0.5 : (radius <= 5 ? 1.0 : 2.0)
+                    var r: Double = step
                     while r <= radius + 1e-9 {
                         let whole = abs(r.rounded() - r) < 1e-9
-                        ctx.stroke(Path(ellipseIn: CGRect(x: centre.x - r * scale, y: centre.y - r * scale, width: 2 * r * scale, height: 2 * r * scale)),
+                        let rr: CGFloat = CGFloat(r) * scale
+                        ctx.stroke(Path(ellipseIn: CGRect(x: centre.x - rr, y: centre.y - rr, width: 2 * rr, height: 2 * rr)),
                                    with: .color(.secondary.opacity(whole ? 0.45 : 0.2)), lineWidth: 1)
                         r += step
                     }
-                    let reach = radius * scale
                     var axes = Path()
                     axes.move(to: CGPoint(x: centre.x - reach, y: centre.y)); axes.addLine(to: CGPoint(x: centre.x + reach, y: centre.y))
                     axes.move(to: CGPoint(x: centre.x, y: centre.y - reach)); axes.addLine(to: CGPoint(x: centre.x, y: centre.y + reach))
                     ctx.stroke(axes, with: .color(.secondary.opacity(0.2)), lineWidth: 1)
-                    for (label, dx, dy) in [("Front", 0.0, -1.0), ("Back", 0.0, 1.0), ("L", -1.0, 0.0), ("R", 1.0, 0.0)] {
+                    let marks: [(String, CGFloat, CGFloat)] = [("Front", 0, -1), ("Back", 0, 1), ("L", -1, 0), ("R", 1, 0)]
+                    for (label, dx, dy) in marks {
                         ctx.draw(Text(label).font(.system(size: 10, weight: .medium)).foregroundColor(.secondary),
                                  at: CGPoint(x: centre.x + dx * (reach + 11), y: centre.y + dy * (reach + 10)))
                     }
@@ -251,20 +256,20 @@ struct ObjectStage: View {
                     head.move(to: CGPoint(x: centre.x - 4, y: centre.y - 6)); head.addLine(to: CGPoint(x: centre.x, y: centre.y - 12)); head.addLine(to: CGPoint(x: centre.x + 4, y: centre.y - 6))
                     ctx.stroke(head, with: .color(.primary.opacity(0.7)), lineWidth: 1.5)
                 }
-                let size = 24 + 8 * model.values[el] / 90
-                Circle().fill(model.puckColor.opacity(shown == p ? 0.95 : 0.5))
+                let size: CGFloat = CGFloat(24 + 8 * model.values[el] / 90)
+                Circle().fill(model.puckColor.opacity(onStage ? 0.95 : 0.5))
                     .overlay(Circle().strokeBorder(Color.primary.opacity(0.8), lineWidth: 2))
                     .frame(width: size, height: size)
-                    .position(x: centre.x + shown.x * scale, y: centre.y - shown.y * scale)
+                    .position(x: centre.x + CGFloat(sx) * scale, y: centre.y - CGFloat(sy) * scale)
             }
             .contentShape(Rectangle())
             .gesture(DragGesture(minimumDistance: 0)
                 .onChanged { g in
                     model.begin(az); model.begin(dist)
-                    let x = (g.location.x - centre.x) / scale, y = (centre.y - g.location.y) / scale
-                    let hd = hypot(x, y)
-                    if hd > 1e-6 { model.set(az, atan2(-x, y) * 180 / .pi) }
-                    model.set(dist, hd / max(0.05, cos(model.values[el] * .pi / 180)))
+                    let x: Double = Double((g.location.x - centre.x) / scale), y: Double = Double((centre.y - g.location.y) / scale)
+                    let hd: Double = (x * x + y * y).squareRoot()
+                    if hd > 1e-6 { model.set(az, atan2(-x, y) * 180 / Double.pi) }
+                    model.set(dist, hd / max(0.05, cos(model.values[el] * Double.pi / 180)))
                 }
                 .onEnded { _ in model.end(az); model.end(dist) })
         }
