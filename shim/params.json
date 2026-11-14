@@ -1,0 +1,9624 @@
+{
+ "Objt": [
+  {
+   "id": "azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "index",
+   "min": -1,
+   "max": 255,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "roomSimulationLateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "useSessionCoordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "visible",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  }
+ ],
+ "Chan": [
+  {
+   "id": "contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "index",
+   "min": -1,
+   "max": 7,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  }
+ ],
+ "Scen": [
+  {
+   "id": "assignMetadata",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "baselineGain",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "filter0azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "filter0elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "filter0enable",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "filter0focalGain",
+   "min": 0,
+   "max": 2,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "filter0height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "filter0shape",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "filter0width",
+   "min": 0,
+   "max": 360,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "filter1azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "filter1elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "filter1enable",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "filter1focalGain",
+   "min": 0,
+   "max": 2,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "filter1height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "filter1shape",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "filter1width",
+   "min": 0,
+   "max": 360,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "filter2azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "filter2elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "filter2enable",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "filter2focalGain",
+   "min": 0,
+   "max": 2,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "filter2height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "filter2shape",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "filter2width",
+   "min": 0,
+   "max": 360,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "filter3azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "filter3elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "filter3enable",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "filter3focalGain",
+   "min": 0,
+   "max": 2,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "filter3height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "filter3shape",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "filter3width",
+   "min": 0,
+   "max": 360,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "filterNum",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "gain",
+   "min": 0,
+   "max": 2,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "gainEnable",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "index",
+   "min": -1,
+   "max": 7,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "mirrorFrontBackEnable",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "mirrorLeftRightEnable",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "mirrorUpDownEnable",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "order",
+   "min": 0,
+   "max": 7,
+   "def": 7,
+   "discrete": true
+  },
+  {
+   "id": "pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "rotationEnable",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "spatialFilterEnable",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  }
+ ],
+ "Ob2S": [
+  {
+   "id": "absorptionScaling",
+   "min": 0.1,
+   "max": 5,
+   "def": 0.9999999403953552,
+   "discrete": false
+  },
+  {
+   "id": "ceilingMaterial",
+   "min": 0,
+   "max": 8,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "firstInputObjectIndex",
+   "min": 0,
+   "max": 3,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "floorMaterial",
+   "min": 0,
+   "max": 8,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "gridLevel",
+   "min": -5,
+   "max": 5,
+   "def": -1.00000011920929,
+   "discrete": true
+  },
+  {
+   "id": "input0convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input10convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input11convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input12convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input13convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input14convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input15convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input16convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input17convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input18convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input19convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input1convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input20convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input21convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input22convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input23convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input24convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input25convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input26convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input27convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input28convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input29convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input2convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input30convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input31convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input32convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input33convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input34convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input35convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input36convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input37convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input38convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input39convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input3convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input40convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input41convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input42convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input43convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input44convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input45convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input46convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input47convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input48convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input49convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input4convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input50convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input51convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input52convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input53convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input54convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input55convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input56convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input57convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input58convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input59convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input5convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input60convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input61convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input62convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input63convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input6convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input7convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input8convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "input9convert",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "objectsToConvert",
+   "min": 0,
+   "max": 3,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "roomRT60",
+   "min": 0,
+   "max": 1000,
+   "def": 0.6299999952316284,
+   "discrete": false
+  },
+  {
+   "id": "roomSizeX",
+   "min": 2,
+   "max": 20,
+   "def": 7,
+   "discrete": false
+  },
+  {
+   "id": "roomSizeY",
+   "min": 2,
+   "max": 20,
+   "def": 10,
+   "discrete": false
+  },
+  {
+   "id": "roomSizeZ",
+   "min": 2,
+   "max": 20,
+   "def": 3,
+   "discrete": false
+  },
+  {
+   "id": "useSessionRoomSettings",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "wallMaterial",
+   "min": 0,
+   "max": 8,
+   "def": 0.0,
+   "discrete": true
+  }
+ ],
+ "CRdr": [
+  {
+   "id": "channelOutputType",
+   "min": 1,
+   "max": 15,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "inputIndex",
+   "min": 0,
+   "max": 7,
+   "def": 0.0,
+   "discrete": true
+  }
+ ],
+ "ORdr": [
+  {
+   "id": "channelOutputType",
+   "min": 1,
+   "max": 15,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "inputIndex",
+   "min": 0,
+   "max": 3,
+   "def": 0.0,
+   "discrete": true
+  }
+ ],
+ "SRdr": [
+  {
+   "id": "channelOutputType",
+   "min": 1,
+   "max": 15,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "inputIndex",
+   "min": 0,
+   "max": 7,
+   "def": 0.0,
+   "discrete": true
+  }
+ ],
+ "Expt": [
+  {
+   "id": "autoDisarm",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "bounceArmed",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "createAIAFile",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "createAPACFile",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  }
+ ],
+ "Pnnr": [
+  {
+   "id": "sessionCoordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "targetPlaybackIndex",
+   "min": 0,
+   "max": 4,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "contentKind",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "hrtfType",
+   "min": 0,
+   "max": 2,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "headYaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "headPitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "headRoll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "reverbPreset",
+   "min": 0,
+   "max": 23,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "roomSizeX",
+   "min": 2,
+   "max": 20,
+   "def": 7,
+   "discrete": false
+  },
+  {
+   "id": "roomSizeY",
+   "min": 2,
+   "max": 20,
+   "def": 10,
+   "discrete": false
+  },
+  {
+   "id": "roomSizeZ",
+   "min": 2,
+   "max": 20,
+   "def": 3,
+   "discrete": false
+  },
+  {
+   "id": "wallMaterial",
+   "min": 0,
+   "max": 8,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "floorMaterial",
+   "min": 0,
+   "max": 8,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "ceilingMaterial",
+   "min": 0,
+   "max": 8,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "absorptionScaling",
+   "min": 0.1,
+   "max": 5,
+   "def": 0.9999999403953552,
+   "discrete": false
+  },
+  {
+   "id": "gridLevel",
+   "min": -5,
+   "max": 5,
+   "def": -1.00000011920929,
+   "discrete": true
+  },
+  {
+   "id": "object0azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object0elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object0r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object0x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object0y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object0z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object0contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object0convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object0coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object0directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object0externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object0headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object0height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object0importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object0interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object0languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object0lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object0musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object0orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object0pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object0playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object0postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object0rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object0reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object0reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object0roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object0roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object0size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object0width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object0xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object0yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object0yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object0zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object1azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object1elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object1r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object1x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object1y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object1z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object1contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object1convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object1coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object1directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object1externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object1headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object1height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object1importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object1interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object1languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object1lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object1musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object1orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object1pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object1playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object1postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object1rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object1reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object1reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object1roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object1roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object1size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object1width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object1xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object1yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object1yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object1zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object2azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object2elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object2r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object2x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object2y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object2z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object2contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object2convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object2coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object2directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object2externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object2headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object2height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object2importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object2interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object2languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object2lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object2musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object2orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object2pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object2playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object2postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object2rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object2reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object2reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object2roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object2roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object2size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object2width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object2xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object2yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object2yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object2zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object3azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object3elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object3r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object3x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object3y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object3z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object3contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object3convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object3coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object3directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object3externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object3headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object3height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object3importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object3interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object3languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object3lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object3musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object3orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object3pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object3playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object3postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object3rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object3reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object3reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object3roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object3roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object3size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object3width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object3xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object3yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object3yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object3zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object4azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object4elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object4r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object4x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object4y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object4z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object4contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object4convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object4coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object4directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object4externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object4headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object4height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object4importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object4interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object4languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object4lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object4musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object4orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object4pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object4playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object4postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object4rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object4reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object4reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object4roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object4roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object4size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object4width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object4xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object4yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object4yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object4zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object5azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object5elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object5r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object5x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object5y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object5z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object5contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object5convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object5coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object5directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object5externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object5headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object5height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object5importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object5interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object5languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object5lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object5musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object5orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object5pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object5playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object5postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object5rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object5reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object5reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object5roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object5roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object5size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object5width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object5xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object5yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object5yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object5zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object6azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object6elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object6r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object6x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object6y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object6z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object6contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object6convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object6coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object6directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object6externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object6headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object6height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object6importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object6interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object6languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object6lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object6musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object6orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object6pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object6playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object6postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object6rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object6reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object6reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object6roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object6roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object6size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object6width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object6xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object6yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object6yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object6zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object7azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object7elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object7r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object7x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object7y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object7z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object7contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object7convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object7coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object7directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object7externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object7headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object7height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object7importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object7interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object7languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object7lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object7musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object7orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object7pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object7playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object7postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object7rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object7reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object7reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object7roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object7roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object7size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object7width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object7xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object7yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object7yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object7zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object8azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object8elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object8r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object8x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object8y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object8z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object8contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object8convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object8coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object8directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object8externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object8headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object8height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object8importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object8interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object8languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object8lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object8musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object8orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object8pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object8playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object8postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object8rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object8reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object8reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object8roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object8roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object8size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object8width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object8xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object8yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object8yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object8zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object9azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object9elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object9r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object9x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object9y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object9z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object9contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object9convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object9coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object9directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object9externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object9headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object9height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object9importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object9interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object9languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object9lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object9musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object9orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object9pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object9playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object9postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object9rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object9reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object9reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object9roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object9roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object9size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object9width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object9xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object9yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object9yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object9zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object10azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object10elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object10r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object10x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object10y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object10z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object10contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object10convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object10coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object10directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object10externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object10headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object10height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object10importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object10interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object10languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object10lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object10musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object10orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object10pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object10playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object10postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object10rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object10reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object10reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object10roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object10roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object10size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object10width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object10xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object10yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object10yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object10zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object11azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object11elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object11r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object11x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object11y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object11z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object11contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object11convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object11coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object11directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object11externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object11headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object11height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object11importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object11interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object11languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object11lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object11musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object11orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object11pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object11playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object11postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object11rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object11reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object11reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object11roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object11roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object11size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object11width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object11xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object11yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object11yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object11zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object12azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object12elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object12r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object12x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object12y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object12z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object12contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object12convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object12coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object12directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object12externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object12headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object12height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object12importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object12interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object12languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object12lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object12musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object12orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object12pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object12playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object12postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object12rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object12reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object12reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object12roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object12roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object12size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object12width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object12xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object12yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object12yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object12zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object13azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object13elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object13r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object13x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object13y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object13z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object13contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object13convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object13coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object13directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object13externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object13headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object13height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object13importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object13interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object13languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object13lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object13musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object13orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object13pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object13playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object13postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object13rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object13reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object13reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object13roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object13roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object13size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object13width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object13xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object13yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object13yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object13zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object14azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object14elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object14r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object14x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object14y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object14z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object14contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object14convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object14coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object14directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object14externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object14headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object14height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object14importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object14interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object14languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object14lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object14musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object14orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object14pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object14playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object14postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object14rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object14reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object14reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object14roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object14roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object14size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object14width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object14xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object14yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object14yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object14zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object15azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object15elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object15r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object15x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object15y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object15z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object15contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object15convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object15coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object15directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object15externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object15headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object15height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object15importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object15interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object15languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object15lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object15musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object15orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object15pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object15playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object15postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object15rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object15reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object15reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object15roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object15roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object15size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object15width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object15xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object15yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object15yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object15zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object16azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object16elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object16r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object16x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object16y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object16z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object16contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object16convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object16coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object16directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object16externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object16headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object16height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object16importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object16interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object16languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object16lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object16musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object16orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object16pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object16playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object16postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object16rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object16reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object16reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object16roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object16roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object16size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object16width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object16xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object16yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object16yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object16zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object17azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object17elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object17r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object17x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object17y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object17z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object17contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object17convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object17coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object17directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object17externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object17headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object17height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object17importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object17interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object17languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object17lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object17musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object17orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object17pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object17playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object17postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object17rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object17reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object17reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object17roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object17roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object17size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object17width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object17xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object17yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object17yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object17zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object18azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object18elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object18r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object18x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object18y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object18z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object18contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object18convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object18coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object18directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object18externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object18headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object18height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object18importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object18interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object18languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object18lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object18musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object18orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object18pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object18playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object18postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object18rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object18reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object18reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object18roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object18roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object18size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object18width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object18xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object18yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object18yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object18zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object19azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object19elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object19r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object19x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object19y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object19z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object19contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object19convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object19coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object19directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object19externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object19headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object19height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object19importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object19interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object19languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object19lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object19musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object19orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object19pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object19playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object19postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object19rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object19reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object19reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object19roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object19roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object19size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object19width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object19xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object19yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object19yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object19zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object20azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object20elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object20r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object20x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object20y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object20z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object20contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object20convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object20coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object20directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object20externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object20headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object20height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object20importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object20interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object20languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object20lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object20musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object20orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object20pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object20playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object20postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object20rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object20reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object20reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object20roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object20roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object20size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object20width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object20xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object20yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object20yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object20zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object21azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object21elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object21r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object21x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object21y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object21z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object21contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object21convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object21coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object21directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object21externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object21headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object21height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object21importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object21interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object21languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object21lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object21musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object21orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object21pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object21playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object21postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object21rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object21reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object21reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object21roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object21roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object21size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object21width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object21xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object21yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object21yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object21zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object22azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object22elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object22r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object22x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object22y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object22z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object22contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object22convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object22coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object22directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object22externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object22headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object22height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object22importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object22interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object22languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object22lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object22musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object22orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object22pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object22playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object22postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object22rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object22reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object22reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object22roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object22roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object22size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object22width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object22xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object22yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object22yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object22zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object23azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object23elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object23r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object23x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object23y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object23z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object23contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object23convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object23coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object23directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object23externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object23headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object23height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object23importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object23interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object23languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object23lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object23musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object23orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object23pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object23playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object23postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object23rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object23reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object23reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object23roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object23roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object23size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object23width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object23xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object23yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object23yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object23zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object24azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object24elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object24r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object24x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object24y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object24z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object24contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object24convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object24coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object24directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object24externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object24headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object24height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object24importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object24interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object24languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object24lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object24musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object24orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object24pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object24playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object24postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object24rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object24reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object24reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object24roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object24roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object24size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object24width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object24xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object24yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object24yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object24zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object25azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object25elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object25r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object25x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object25y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object25z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object25contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object25convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object25coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object25directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object25externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object25headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object25height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object25importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object25interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object25languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object25lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object25musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object25orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object25pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object25playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object25postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object25rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object25reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object25reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object25roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object25roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object25size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object25width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object25xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object25yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object25yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object25zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object26azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object26elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object26r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object26x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object26y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object26z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object26contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object26convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object26coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object26directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object26externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object26headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object26height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object26importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object26interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object26languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object26lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object26musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object26orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object26pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object26playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object26postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object26rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object26reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object26reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object26roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object26roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object26size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object26width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object26xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object26yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object26yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object26zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object27azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object27elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object27r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object27x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object27y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object27z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object27contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object27convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object27coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object27directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object27externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object27headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object27height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object27importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object27interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object27languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object27lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object27musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object27orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object27pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object27playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object27postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object27rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object27reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object27reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object27roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object27roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object27size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object27width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object27xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object27yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object27yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object27zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object28azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object28elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object28r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object28x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object28y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object28z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object28contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object28convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object28coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object28directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object28externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object28headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object28height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object28importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object28interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object28languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object28lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object28musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object28orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object28pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object28playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object28postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object28rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object28reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object28reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object28roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object28roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object28size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object28width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object28xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object28yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object28yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object28zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object29azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object29elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object29r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object29x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object29y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object29z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object29contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object29convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object29coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object29directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object29externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object29headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object29height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object29importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object29interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object29languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object29lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object29musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object29orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object29pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object29playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object29postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object29rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object29reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object29reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object29roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object29roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object29size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object29width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object29xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object29yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object29yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object29zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object30azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object30elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object30r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object30x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object30y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object30z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object30contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object30convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object30coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object30directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object30externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object30headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object30height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object30importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object30interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object30languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object30lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object30musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object30orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object30pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object30playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object30postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object30rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object30reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object30reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object30roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object30roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object30size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object30width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object30xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object30yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object30yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object30zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object31azimuth",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object31elevation",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object31r",
+   "min": 0,
+   "max": 10,
+   "def": 1,
+   "discrete": false
+  },
+  {
+   "id": "object31x",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object31y",
+   "min": -10,
+   "max": 10,
+   "def": 0.9999997615814209,
+   "discrete": false
+  },
+  {
+   "id": "object31z",
+   "min": -10,
+   "max": 10,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object31contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object31convertToHOA",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object31coordinateSystem",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object31directivity",
+   "min": 0,
+   "max": 5,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object31externalized",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object31headlock",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object31height",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object31importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object31interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object31languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "object31lateReverb",
+   "min": -6,
+   "max": -0.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object31musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object31orientationReference",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object31pitch",
+   "min": -90,
+   "max": 90.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object31playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "object31postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object31rOffset",
+   "min": 0,
+   "max": 200,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object31reverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object31reverbMix",
+   "min": 0,
+   "max": 100,
+   "def": 50,
+   "discrete": false
+  },
+  {
+   "id": "object31roll",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object31roomSimulation",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "object31size",
+   "min": 0.01,
+   "max": 1,
+   "def": 0.300000011920929,
+   "discrete": false
+  },
+  {
+   "id": "object31width",
+   "min": 0,
+   "max": 180,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object31xOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object31yOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object31yaw",
+   "min": -180,
+   "max": 180.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "object31zOffset",
+   "min": -200,
+   "max": 200.0,
+   "def": 0.0,
+   "discrete": false
+  },
+  {
+   "id": "chanBed0contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "chanBed0importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed0interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed0languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "chanBed0musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "chanBed0playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed0postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "chanBed1contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "chanBed1importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed1interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed1languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "chanBed1musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "chanBed1playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed1postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "chanBed2contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "chanBed2importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed2interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed2languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "chanBed2musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "chanBed2playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed2postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "chanBed3contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "chanBed3importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed3interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed3languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "chanBed3musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "chanBed3playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed3postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "chanBed4contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "chanBed4importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed4interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed4languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "chanBed4musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "chanBed4playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed4postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "chanBed5contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "chanBed5importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed5interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed5languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "chanBed5musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "chanBed5playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed5postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "chanBed6contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "chanBed6importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed6interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed6languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "chanBed6musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "chanBed6playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed6postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "chanBed7contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "chanBed7importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed7interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed7languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "chanBed7musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "chanBed7playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "chanBed7postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA0contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA0importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA0interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA0languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "HOA0musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA0order",
+   "min": 0,
+   "max": 7,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA0playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA0postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA1contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA1importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA1interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA1languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "HOA1musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA1order",
+   "min": 0,
+   "max": 7,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA1playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA1postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA2contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA2importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA2interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA2languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "HOA2musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA2order",
+   "min": 0,
+   "max": 7,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA2playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA2postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA3contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA3importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA3interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA3languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "HOA3musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA3order",
+   "min": 0,
+   "max": 7,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA3playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA3postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA4contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA4importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA4interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA4languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "HOA4musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA4order",
+   "min": 0,
+   "max": 7,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA4playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA4postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA5contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA5importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA5interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA5languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "HOA5musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA5order",
+   "min": 0,
+   "max": 7,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA5playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA5postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA6contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA6importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA6interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA6languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "HOA6musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA6order",
+   "min": 0,
+   "max": 7,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA6playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA6postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA7contentType",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA7importance",
+   "min": 1,
+   "max": 4,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA7interactiveTag",
+   "min": 1,
+   "max": 2,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA7languageID",
+   "min": 1,
+   "max": 56,
+   "def": 17,
+   "discrete": true
+  },
+  {
+   "id": "HOA7musicAndEffectsTag",
+   "min": 0,
+   "max": 6,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA7order",
+   "min": 0,
+   "max": 7,
+   "def": 0.0,
+   "discrete": true
+  },
+  {
+   "id": "HOA7playbackEnabled",
+   "min": 0,
+   "max": 1,
+   "def": 1,
+   "discrete": true
+  },
+  {
+   "id": "HOA7postProcReverb",
+   "min": 0,
+   "max": 1,
+   "def": 0.0,
+   "discrete": true
+  }
+ ]
+}

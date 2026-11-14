@@ -1,0 +1,6 @@
+[submodule "modules/reaper-sdk"]
+	path = modules/reaper-sdk
+	url = git@github.com:justinfrankel/reaper-sdk.git
+[submodule "modules/clap"]
+	path = modules/clap
+	url = git@github.com:free-audio/clap.git
