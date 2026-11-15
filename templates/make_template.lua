@@ -24,6 +24,14 @@ local function track(name, nch, mainSend, depth)
   return tr
 end
 
+-- Metadata reaches ASAF Export (and the object-to-scene converters) through a shared metadata bus,
+-- not along the audio path, so every track that writes or reads it for the export must be processed
+-- in step: no anticipative FX. Otherwise REAPER runs some tracks a varying few blocks ahead of others
+-- and automation lands early in the export.
+local function inStep(tr)
+  reaper.SetMediaTrackInfo_Value(tr, "I_PERFFLAGS", reaper.GetMediaTrackInfo_Value(tr, "I_PERFFLAGS") | 2)
+end
+
 local function unit(tr, name)
   local fx = reaper.ASAF_AddUnit(tr, name)
   if fx < 0 then problems = problems + 1; L("could not add", name) end
@@ -63,6 +71,7 @@ for b = 0, blocks - 1 do
     local tr = track("Object " .. n, 2, true, n == z and -1 or 0)
     reaper.SetMediaTrackInfo_Value(tr, "C_MAINSEND_OFFS", n - a)   -- channel of the folder bus
     reaper.SetMediaTrackInfo_Value(tr, "C_MAINSEND_NCH", 1)
+    inStep(tr)
     local fx = unit(tr, "ASAF Object")
     if fx >= 0 then reaper.ASAF_ShowEmbeddedUI(tr) end
     set(tr, fx, "Index", n - 1)
@@ -78,6 +87,7 @@ local converters = {}
 for b = 0, blocks - 1 do
   local a, z = b * 64 + 1, b * 64 + 64
   local tr = track(string.format("Object %d-%d to Scene", a, z), 64, false, b == blocks - 1 and -1 or 0)
+  inStep(tr)
   local fx = unit(tr, "ASAF Object to Scene")
   set(tr, fx, "First Input Object Index", b)
   send(objectBus[b], tr, 64, 0)
@@ -87,6 +97,7 @@ end
 local sceneFolder = track("ASAF 7OA", 2, false, 1)
 color(sceneFolder, 80, 120, 170)
 local scene = track("Scene 1", 64, false, -1)
+inStep(scene)
 do
   local fx = unit(scene, "ASAF Scene")
   set(scene, fx, "Order", 7)
@@ -121,6 +132,7 @@ unit(panner, "ASAF Panner")
 
 local export = track("ASAF Export", 12, false)
 color(export, 200, 70, 70)
+inStep(export)
 unit(export, "ASAF Export")
 
 reaper.PreventUIRefresh(-1)
