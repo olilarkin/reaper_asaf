@@ -39,6 +39,7 @@
 #define REAPERAPI_WANT_TrackList_AdjustWindows
 #define REAPERAPI_WANT_UpdateArrange
 #define REAPERAPI_WANT_get_config_var
+#define REAPERAPI_WANT_set_config_var_string
 #define REAPERAPI_WANT_SetOnlyTrackSelected
 #define REAPERAPI_WANT_GetMainHwnd
 #define REAPERAPI_WANT_AddExtensionsMainMenu

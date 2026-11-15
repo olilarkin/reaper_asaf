@@ -27,9 +27,23 @@ static void onMain(void (^block)(void))
   if ([NSThread isMainThread]) block(); else dispatch_sync(dispatch_get_main_queue(), block);
 }
 
+// Set ASAF_NO_DIALOGS=1 to log problems to stderr instead of showing them (for unattended test runs).
 static void report(const std::string &msg)
 {
+  if (getenv("ASAF_NO_DIALOGS")) { NSLog(@"reaper_asaf: %s", msg.c_str()); return; }
   onMain(^{ if (ShowMessageBox) ShowMessageBox(msg.c_str(), "ASAF", 0); });
+}
+
+// Set ASAF_KEEP_BOUNCE=1 to keep a copy of each render as it was before conversion, next to the output
+// as "<name>.bounce.wav" (see tools/export_test).
+static void keepBounce(const std::string &fn)
+{
+  if (!getenv("ASAF_KEEP_BOUNCE")) return;
+  const size_t dot = fn.rfind('.');
+  NSString *copy = @((fn.substr(0, dot == std::string::npos ? fn.size() : dot) + ".bounce.wav").c_str());
+  [[NSFileManager defaultManager] removeItemAtPath:copy error:nil];
+  const bool ok = [[NSFileManager defaultManager] copyItemAtPath:@(fn.c_str()) toPath:copy error:nil];
+  NSLog(@"reaper_asaf: bounce kept at %@: %d", copy, (int)ok);
 }
 
 static int *renderBlockSizeVar()
@@ -37,6 +51,16 @@ static int *renderBlockSizeVar()
   int sz = 0;
   void *p = get_config_var ? get_config_var("renderbsnew", &sz) : nullptr;
   return (p && sz == (int)sizeof(int)) ? (int *)p : nullptr;
+}
+
+// Set the render block size to the one ASAF Export needs, and save it in reaper.ini so it survives a
+// restart (a value only changed in memory is lost when REAPER quits). False if it couldn't be set.
+static bool setRenderBlockSize()
+{
+  if (set_config_var_string && set_config_var_string("renderbsnew", std::to_string(kRenderBlockSize).c_str(), 1)) return true;
+  int *bs = renderBlockSizeVar();
+  if (bs) *bs = kRenderBlockSize;
+  return bs != nullptr;
 }
 
 // ============================================================================ render sink
@@ -53,10 +77,17 @@ class ASAF_Sink : public PCM_sink
     if (!armed) m_problem = err.empty() ? "Could not arm ASAF Export." : err;
     m_armed = armed;
     if (srate != 48000) m_problem = "ASAF requires a 48 kHz render (this render is " + std::to_string(srate) + " Hz).";
+    // The wrong block size (REAPER's default, or a setting lost in a restart): fix it here. Whether
+    // that is in time for this render shows in the blocks we are given, so decide when it finishes.
     if (int *bs = renderBlockSizeVar()) {
-      if (*bs != kRenderBlockSize)
-        m_problem = "ASAF requires a render block size of 1024 samples (Preferences > Audio > Rendering). "
-                    "Run \"ASAF: Set up session\" to set it, then render again.";
+      if (*bs != kRenderBlockSize) {
+        const int was = *bs;
+        __block bool set = false;
+        onMain(^{ set = setRenderBlockSize(); });
+        m_blockSizeFixed = set;
+        DBG("render block size was %d; set to %d: %d", was, kRenderBlockSize, (int)set);
+        if (!set) m_problem = "ASAF requires a render block size of 1024 samples. Set it in Preferences > Audio > Rendering, then render again.";
+      }
     }
   }
 
@@ -79,6 +110,9 @@ class ASAF_Sink : public PCM_sink
 
   void WriteDoubles(ReaSample **samples, int len, int nch, int offset, int spacing) override
   {
+    // every block but the last has to be 1024 samples
+    if (m_lastLen >= 0 && m_lastLen != kRenderBlockSize) m_wrongBlocks = true;
+    m_lastLen = len;
     m_writer.write(samples, len, nch, offset, spacing);
   }
 
@@ -103,7 +137,12 @@ class ASAF_Sink : public PCM_sink
     if (m_finished) return;
     m_finished = true;
     m_writer.close();
+    keepBounce(m_fn);
     disarm();
+    DBG("finish: blockSizeFixed=%d wrongBlocks=%d lastLen=%d", (int)m_blockSizeFixed, (int)m_wrongBlocks, m_lastLen);
+    if (m_problem.empty() && m_blockSizeFixed && m_wrongBlocks)
+      m_problem = "This render did not use the 1024-sample block size ASAF needs. The setting "
+                  "(Preferences > Audio > Rendering) has now been changed to 1024: render again.";
     if (!m_problem.empty()) { report("The file was rendered but not converted to ASAF.\n\n" + m_problem); return; }
     if (m_nch <= kMetadataChannels) {
       report("The file was rendered but not converted to ASAF.\n\nThe render has only " + std::to_string(m_nch) +
@@ -121,6 +160,8 @@ class ASAF_Sink : public PCM_sink
   }
 
   std::string m_fn, m_problem;
+  bool m_blockSizeFixed = false, m_wrongBlocks = false; // the setting was wrong and we changed it / blocks weren't 1024 samples
+  int m_lastLen = -1;
   int m_nch, m_srate;
   asaf::BounceWriter m_writer;
   bool m_armed = false, m_finished = false, m_apac = false;
@@ -274,6 +315,10 @@ static std::string buildSession(int nobj)
   // Export bus: object i on channel i, then ASAF Export's 8 metadata channels. Not sent to the master.
   const int busCh = nobj + kMetadataChannels, busChEven = (busCh + 1) & ~1;
   MediaTrack *bus = newTrack("ASAF Export Bus", busChEven, false);
+  // Object positions reach ASAF Export through a shared metadata bus, not along the audio path, so
+  // the object tracks and this bus must be processed in step: no anticipative FX on either. Otherwise
+  // REAPER runs the object tracks a varying few blocks ahead and automation lands early in the export.
+  SetMediaTrackInfo_Value(bus, "I_PERFFLAGS", 2);
   int exFx = addASAF(bus, "ASAF Export");
   if (exFx < 0) problems += "- Could not add ASAF Export (is ASAF.clap installed and scanned?)\n";
   else {
@@ -301,6 +346,7 @@ static std::string buildSession(int nobj)
   for (int i = 0; i < nobj; i++) {
     char name[32]; snprintf(name, sizeof name, "Object %d", i + 1);
     MediaTrack *tr = newTrack(name, 2, false);
+    SetMediaTrackInfo_Value(tr, "I_PERFFLAGS", 2); // see the export bus above
     int fx = addASAF(tr, "ASAF Object");
     if (fx < 0) objFailed = true;
     else {
@@ -312,8 +358,7 @@ static std::string buildSession(int nobj)
   }
   if (objFailed) problems += "- Could not add ASAF Object to one or more tracks\n";
 
-  if (int *bs = renderBlockSizeVar()) *bs = kRenderBlockSize;
-  else problems += "- Could not set the render block size; set it to 1024 in Preferences > Audio > Rendering\n";
+  if (!setRenderBlockSize()) problems += "- Could not set the render block size; set it to 1024 in Preferences > Audio > Rendering\n";
 
   SetOnlyTrackSelected(bus);
   PreventUIRefresh(-1);

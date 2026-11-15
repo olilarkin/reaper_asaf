@@ -446,8 +446,8 @@ static bool pluginInit(const clap_plugin_t *p)
   if (!pl->hostTrack) pl->hostTrack = (const clap_host_track_info_t *)pl->host->get_extension(pl->host, CLAP_EXT_TRACK_INFO_COMPAT);
   updateTrackInfo(pl);
 
-  // Parameters live in JUCE objects that must be touched on the main thread: apply what the host sent
-  // and pick up what the plug-in changed, ~60 times a second.
+  // Automation is applied in process(). This timer applies what the host sent through flush() and
+  // picks up what the plug-in changed, ~60 times a second.
   std::shared_ptr<bool> alive = pl->alive;
   pl->timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
   dispatch_source_set_timer(pl->timer, dispatch_time(DISPATCH_TIME_NOW, 0), 15 * NSEC_PER_MSEC, 5 * NSEC_PER_MSEC);
@@ -494,6 +494,7 @@ static clap_process_status pluginProcess(const clap_plugin_t *p, const clap_proc
   Plugin *pl = self(p);
   Unit &u = pl->unit;
   readFromHost(pl, proc->in_events);
+  u.applyFromHost();
   if (proc->transport)
     u.setTransport((proc->transport->flags & CLAP_TRANSPORT_IS_PLAYING) != 0, (proc->transport->flags & CLAP_TRANSPORT_IS_RECORDING) != 0);
 
@@ -507,7 +508,6 @@ static clap_process_status pluginProcess(const clap_plugin_t *p, const clap_proc
   if (outputs) u.process(inputs, inCh, outputs, outCh, proc->frames_count);
 
   emitToHost(pl, proc->out_events);
-  if (u.hasPendingHostWork()) pl->host->request_callback(pl->host);
   return CLAP_PROCESS_CONTINUE;
 }
 

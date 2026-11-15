@@ -390,13 +390,28 @@ void Unit::refreshFromPlugin(bool notifyHost)
   }
 }
 
+bool Unit::applyDirty()
+{
+  if (!m_anyDirty.exchange(false, std::memory_order_acq_rel)) return false;
+  for (int i = 0; i < (int)m_defs.size(); i++)
+    if (m_dirty[i].exchange(false, std::memory_order_acq_rel)) directSet(i, m_values[i].load(std::memory_order_relaxed));
+  return true;
+}
+
+// This is what JUCE's own AudioUnit wrapper does when a host calls AudioUnitSetParameter, which hosts
+// do from their audio thread: setValue() then sendValueChangedMessageToListeners().
+void Unit::applyFromHost()
+{
+  if (!m_au || m_defs.empty()) return;
+  if (applyDirty()) m_refreshSoon.store(true, std::memory_order_release);
+}
+
 void Unit::tick()
 {
   if (!m_au || m_defs.empty()) return;
   m_tick++;
-  if (m_anyDirty.exchange(false, std::memory_order_acq_rel)) {
-    for (int i = 0; i < (int)m_defs.size(); i++)
-      if (m_dirty[i].exchange(false, std::memory_order_acq_rel)) directSet(i, m_values[i].load(std::memory_order_relaxed));
+  const bool applied = applyDirty(); // values that arrived through flush(), outside process()
+  if (m_refreshSoon.exchange(false, std::memory_order_acq_rel) || applied) {
     refreshFromPlugin(true);
   } else if (m_tick % 8 == 0) {
     refreshFromPlugin(true); // changes made by the plug-in itself, and meters

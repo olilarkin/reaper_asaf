@@ -60,7 +60,7 @@ class Unit {
   int paramIndex(const char *ident) const;
   int paramIndexForHash(uint32_t hash) const;
   double value(int i) const { return m_values[i].load(std::memory_order_relaxed); }
-  void setFromHost(int index, double value);   // realtime-safe: applied on the next tick()
+  void setFromHost(int index, double value);   // queued: applied by applyFromHost() or the next tick()
   bool hasPendingHostWork() const { return m_anyDirty.load(std::memory_order_relaxed); }
   bool hasPendingToHost() const { return m_anyToHost.load(std::memory_order_relaxed); }
 
@@ -80,6 +80,10 @@ class Unit {
   }
 
   // ---- audio thread
+  // Apply values queued by setFromHost() now, so they take effect in the block about to be processed.
+  // Automation has to be applied here rather than on the main-thread timer: an offline render runs
+  // many blocks between two timer ticks.
+  void applyFromHost();
   void setTransport(bool playing, bool recording) { m_playing.store(playing, std::memory_order_relaxed); m_recording.store(recording, std::memory_order_relaxed); }
   // inputs[bus][channel] / outputs[channel]; missing channels are treated as silence / discarded.
   void process(const float *const *const *inputs, const int *inputChannelCounts, float *const *outputs, int outputChannelCount, uint32_t frames);
@@ -88,6 +92,7 @@ class Unit {
   bool resolveParameters();
   double directGet(int i) const;
   void directSet(int i, double v);
+  bool applyDirty();                                  // true if anything was pending
   void refreshFromPlugin(bool notifyHost);
   void markToHost(int i, uint8_t bits);
   static OSStatus inputCallback(void *ref, AudioUnitRenderActionFlags *, const AudioTimeStamp *, UInt32 bus, UInt32 frames, AudioBufferList *io);
@@ -109,6 +114,7 @@ class Unit {
   std::unique_ptr<std::atomic<bool>[]> m_dirty;       // host -> plug-in, not yet applied
   std::unique_ptr<std::atomic<uint8_t>[]> m_toHost;   // plug-in/UI -> host, not yet reported
   std::atomic<bool> m_anyDirty{false}, m_anyToHost{false}, m_playing{false}, m_recording{false};
+  std::atomic<bool> m_refreshSoon{false};             // applyFromHost() changed something: re-read on the next tick()
   unsigned m_tick = 0;
 
   std::vector<std::vector<float>> m_scratch[2];       // copies of the input busses for the AU to pull
