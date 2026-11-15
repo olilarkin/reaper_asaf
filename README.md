@@ -162,3 +162,34 @@ Each component has small test tools that run without a DAW:
 
 Set `ASAF_DEBUG=1` (extension) or `ASAF_CLAP_DEBUG=1` (plug-ins) in REAPER's environment to log to
 stderr.
+
+### Export test
+
+`tools/export_test/` checks that an export carries the object metadata that was set. It renders one
+known scenario (four tones; objects at fixed positions, one with azimuth automation) and reads the
+positions back out of the result:
+
+```sh
+tools/export_test/run.sh            # ASAF.clap hosted without a DAW, like REAPER's offline render
+tools/export_test/run.sh --reaper   # then the same scenario built and rendered by REAPER
+tools/export_test/run.sh --matrix   # the harness with other block sizes, transport states, ...
+```
+
+- `asaf_inspect.py FILE [--expect]` decodes the per-block object positions from a bounce file or an
+  ASAF BWF and, with `--expect`, compares them with the scenario. It works on any export, not only
+  the test's.
+- `asaf_clap/tools/export_test.mm` is the DAW-less harness; `reaper_export_test.lua` is the REAPER
+  side (it can also be run from the action list).
+- `ASAF_KEEP_BOUNCE=1` in REAPER's environment keeps each render as it was before conversion
+  (`<name>.bounce.wav`); `ASAF_NO_DIALOGS=1` logs the exporter's problems instead of showing them.
+
+Both stages are checked at two points, which is what narrows a failure down:
+
+| Result | Where the problem is |
+|---|---|
+| Harness fails | ASAF.clap or Apple's units, independent of REAPER |
+| REAPER bounce: last channel silent | ASAF Export not armed or not processed, or its outputs are not routed to the last 8 channels |
+| REAPER bounce: packets off the block boundary, or not every 1024 frames | Render block size, or delay compensation shifting the metadata channel |
+| REAPER bounce: data present but no packets ("scaled by ...") | Gain, pan law or dither applied to the metadata channel |
+| REAPER bounce: positions wrong or frozen | Parameters or automation not reaching ASAF Object during the render |
+| Bounce passes, ASAF BWF fails | The conversion step |
