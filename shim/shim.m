@@ -701,13 +701,15 @@ int ASAFShim_IsDirect(OSType subType)
 // (.mp4) encoder is only reachable from the Convert button of a dialog that is never shown. The dialog
 // object still exists inside the plug-in, so we call its button handler directly.
 //
-// This depends on the internal layout of one specific build, so it is refused unless the loaded binary
-// is exactly that build (matched by Mach-O UUID) and the objects we find have the expected vtables.
+// This depends on the internal layout of each build, so it is refused unless the loaded binary
+// is one of the builds listed below (matched by Mach-O UUID) and the objects we find have the expected vtables.
 
 #if defined(__arm64__)
-static const uint8_t kExportUUID[16] = { 0xA0,0x4C,0x20,0xB9,0x84,0xC4,0x30,0x65,0xBB,0x8A,0xA0,0xB6,0x73,0x7D,0x3E,0x2E }; // v2.1.8 arm64
-#define EXPORT_DIALOG_OFFSET  0xe98   // ExportProcessor -> BounceDialog*
-#define DIALOG_CONVERT_OFFSET 0x450   // BounceDialog -> convert juce::Button*
+typedef struct { uint8_t uuid[16]; uint32_t dialogOffset, convertOffset; } ExportBuild;  // ExportProcessor -> BounceDialog*, BounceDialog -> convert juce::Button*
+static const ExportBuild kExportBuilds[] = {
+  { { 0xA0,0x4C,0x20,0xB9,0x84,0xC4,0x30,0x65,0xBB,0x8A,0xA0,0xB6,0x73,0x7D,0x3E,0x2E }, 0xe98, 0x450 },  // v2.1.8 arm64
+  { { 0xEC,0x4B,0xAC,0xBF,0xF4,0x89,0x35,0x15,0x8F,0xD6,0x2B,0xA8,0xF7,0x8A,0x05,0x57 }, 0xd98, 0x450 },  // v2.1.13 arm64
+};
 
 #endif
 
@@ -731,15 +733,18 @@ int ASAFShim_ExportPressConvert(void)
     if (!getProp || !dladdr((void *)getProp, &info) || !info.dli_fbase) return -2;
     static const char *const names[] = { "__ZN12BounceDialog13buttonClickedEPN4juce6ButtonE", "__ZTV12BounceDialog", "__ZTV15ExportProcessor" };
     uintptr_t addr[3];
-    if (!imageSymbols(info.dli_fbase, kExportUUID, names, addr, 3)) return -2;
+    const ExportBuild *build = NULL;
+    for (size_t i = 0; i < sizeof kExportBuilds / sizeof kExportBuilds[0] && !build; i++)
+        if (imageSymbols(info.dli_fbase, kExportBuilds[i].uuid, names, addr, 3)) build = &kExportBuilds[i];
+    if (!build) return -2;
 
     void *ptrs[2] = { NULL, NULL }; UInt32 sz = sizeof ptrs;
     if (getProp(s->real, JUCE_FILTER_PROPERTY, kAudioUnitScope_Global, 0, ptrs, &sz) != noErr || !ptrs[0]) return -3;
     uintptr_t *processor = ptrs[0];
     if (processor[0] != addr[2] + 16) return -3;                                   // really an ExportProcessor
-    uintptr_t *dialog = *(uintptr_t **)((char *)processor + EXPORT_DIALOG_OFFSET);
+    uintptr_t *dialog = *(uintptr_t **)((char *)processor + build->dialogOffset);
     if (!dialog || dialog[0] != addr[1] + 16) return -3;                           // really a BounceDialog
-    void *button = *(void **)((char *)dialog + DIALOG_CONVERT_OFFSET);
+    void *button = *(void **)((char *)dialog + build->convertOffset);
     if (!button) return -3;
 
     ((void (*)(void *, void *))addr[0])(dialog, button);

@@ -3,7 +3,7 @@
 -- run.sh, or by hand:
 --
 --   ASAF_TEST_OUT=<dir> ASAF_KEEP_BOUNCE=1 ASAF_NO_DIALOGS=1 ASAF_DEBUG=1 [ASAF_TEST_QUIT=1] \
---     /Applications/REAPER.app/Contents/MacOS/REAPER -newinst -nosplash reaper_export_test.lua
+--     /Applications/REAPER.app/Contents/MacOS/REAPER -newinst -nosplash -new reaper_export_test.lua
 --
 -- or from the action list (Actions > Load ReaScript); output then goes to ~/asaf_export_test unless
 -- ASAF_TEST_OUT is set, and the bounce is only kept if REAPER was started with ASAF_KEEP_BOUNCE=1.
@@ -13,10 +13,18 @@
 --   reaper_export.bounce.wav   the render before conversion (with ASAF_KEEP_BOUNCE=1)
 --   reaper_export_test.RPP     the project that was rendered
 --   reaper_export_test.log     this script's log
+-- (reaper_scene.* and reaper_scene_test.* with ASAF_TEST_SCENE)
 -- Check the .wav files with asaf_inspect.py --expect.
 --
 -- ASAF_TEST_PERFFLAGS=<n> sets I_PERFFLAGS on every track before rendering (2 = no anticipative FX),
 -- to see whether REAPER processing tracks ahead of one another affects the result.
+--
+-- ASAF_TEST_SCENE=<file> adds an ambisonic scene ahead of the objects: an ACN/SN3D file with
+-- (order+1)^2 channels, placed on a scene track made by ASAF_SetupSceneSession.
+--
+-- ASAF_TEST_TEMPLATE=<objects> (64, 128, 192 or 256) runs the scenario in a project made from that
+-- template instead, with ASAF_TEST_SCENE (64 channels) on its scene track, and exports it with
+-- ASAF_ExportProject, which renders the template's busses separately and joins them.
 --
 -- Scenario (4 s, 48 kHz): four objects with 220/440/660/880 Hz tones at -12 dB;
 --   1: azimuth +90   2: azimuth -90   3: elevation 45, distance 2   4: azimuth automated -90 -> +90
@@ -24,10 +32,16 @@
 local OUT = os.getenv("ASAF_TEST_OUT") or ((os.getenv("HOME") or "/tmp") .. "/asaf_export_test")
 local QUIT = os.getenv("ASAF_TEST_QUIT") == "1"
 local NOBJ, SECONDS, RATE = 4, 4, 48000
-local NAME = "reaper_export"
+
+
+local SCENE = os.getenv("ASAF_TEST_SCENE")
+if SCENE == "" then SCENE = nil end
+local TEMPLATE = tonumber(os.getenv("ASAF_TEST_TEMPLATE") or "")
+local NAME = TEMPLATE and "reaper_template" or SCENE and "reaper_scene" or "reaper_export"
+local sceneCh = 0
 
 reaper.RecursiveCreateDirectory(OUT, 0)
-local log = io.open(OUT .. "/reaper_export_test.log", "w")
+local log = io.open(OUT .. "/" .. NAME .. "_test.log", "w")
 local function L(...)
   local t = {}
   for _, v in ipairs({...}) do t[#t + 1] = tostring(v) end
@@ -88,8 +102,35 @@ end
 local function build()
   L("REAPER", reaper.GetAppVersion(), "output", OUT)
   if not reaper.ASAF_SetupSession then problem("reaper_asaf is not loaded (no ASAF_SetupSession)"); return false end
-  reaper.Main_OnCommand(40859, 0) -- new project tab
-  local rc = reaper.ASAF_SetupSession(NOBJ)
+  -- From run.sh REAPER starts with an empty project (-new) and quits afterwards: build there, since a
+  -- second tab would leave the first to ask about saving at quit. By hand, leave the open project alone.
+  if not QUIT then reaper.Main_OnCommand(40859, 0) end -- new project tab
+  local sceneSrc, rc
+  if TEMPLATE then
+    if not reaper.ASAF_ExportProject then problem("reaper_asaf has no ASAF_ExportProject"); return false end
+    local path = reaper.GetResourcePath() .. "/ProjectTemplates/ASAF - Up to " .. TEMPLATE .. " Objects + 1 Scene.RPP"
+    if not reaper.file_exists(path) then problem("no template at", path); return false end
+    reaper.Main_openProject("template:" .. path)
+    L("template:", path)
+    if SCENE then
+      sceneSrc = reaper.PCM_Source_CreateFromFile(SCENE)
+      if not sceneSrc then problem("could not open the scene file", SCENE); return false end
+      sceneCh = reaper.GetMediaSourceNumChannels(sceneSrc)
+      if sceneCh ~= 64 then problem("the template's scene needs a 64-channel file; this one has", sceneCh); return false end
+    end
+    rc = 0
+  elseif SCENE then
+    if not reaper.ASAF_SetupSceneSession then problem("reaper_asaf has no ASAF_SetupSceneSession"); return false end
+    sceneSrc = reaper.PCM_Source_CreateFromFile(SCENE)
+    if not sceneSrc then problem("could not open the scene file", SCENE); return false end
+    sceneCh = reaper.GetMediaSourceNumChannels(sceneSrc)
+    local order = math.floor(math.sqrt(sceneCh) + 0.5) - 1
+    if (order + 1) * (order + 1) ~= sceneCh or order > 7 then problem("scene file has", sceneCh, "channels, not (order+1)^2"); return false end
+    rc = reaper.ASAF_SetupSceneSession(NOBJ, order)
+    L("scene:", SCENE, sceneCh, "channels, order", order)
+  else
+    rc = reaper.ASAF_SetupSession(NOBJ)
+  end
   L("ASAF_SetupSession ->", rc, "tracks:", reaper.CountTracks(0))
   if rc ~= 0 then problem("ASAF_SetupSession reported problems (see REAPER's console)") end
   for t = 0, reaper.CountTracks(0) - 1 do
@@ -97,11 +138,25 @@ local function build()
     local _, name = reaper.GetSetMediaTrackInfo_String(tr, "P_NAME", "", false)
     local fxn = {}
     for fx = 0, reaper.TrackFX_GetCount(tr) - 1 do local _, n = reaper.TrackFX_GetFXName(tr, fx, ""); fxn[#fxn + 1] = n end
-    L(string.format("  track %d '%s' channels %g fx [%s]", t + 1, name, reaper.GetMediaTrackInfo_Value(tr, "I_NCHAN"), table.concat(fxn, "; ")))
+    if not TEMPLATE or not name:match("^Object %d+$") or tonumber(name:match("%d+")) <= NOBJ then
+      L(string.format("  track %d '%s' channels %g fx [%s]", t + 1, name, reaper.GetMediaTrackInfo_Value(tr, "I_NCHAN"), table.concat(fxn, "; ")))
+    end
     local i = tonumber(name:match("^Object (%d+)$"))
-    if i then objTracks[i] = tr end
-    if name == "ASAF Export Bus" then bus = tr end
+    if i and i <= NOBJ then objTracks[i] = tr end
+    if name == "ASAF Export Bus" or (TEMPLATE and name == "ASAF Export") then bus = tr end
+    if sceneSrc and (name:match("^Scene %(order") or (TEMPLATE and name == "Scene 1")) then
+      local item = reaper.AddMediaItemToTrack(tr)
+      local take = reaper.AddTakeToMediaItem(item)
+      reaper.SetMediaItemTake_Source(take, sceneSrc)
+      reaper.SetMediaItemInfo_Value(item, "D_POSITION", 0)
+      reaper.SetMediaItemInfo_Value(item, "D_LENGTH", SECONDS)
+      reaper.SetMediaItemInfo_Value(item, "D_FADEINLEN", 0); reaper.SetMediaItemInfo_Value(item, "D_FADEOUTLEN", 0)
+      reaper.SetMediaItemInfo_Value(item, "D_FADEINLEN_AUTO", 0); reaper.SetMediaItemInfo_Value(item, "D_FADEOUTLEN_AUTO", 0)
+      sceneSrc = nil
+      L("  scene item added to", name)
+    end
   end
+  if SCENE and sceneSrc then problem("no scene track in the session") end
   if #objTracks ~= NOBJ or not bus then problem("session does not have the expected tracks"); return false end
 
   for i, tr in ipairs(objTracks) do
@@ -151,7 +206,24 @@ local function render()
   logObjects("before render")
   local exFx, exName = findFX(bus, "ASAF Export")
   L("export bus fx:", exName or "(none)")
-  local nch = NOBJ + 8
+  if TEMPLATE then
+    reaper.GetSetProjectInfo(0, "RENDER_BOUNDSFLAG", 0, true) -- custom time bounds
+    reaper.GetSetProjectInfo(0, "RENDER_STARTPOS", 0, true)
+    reaper.GetSetProjectInfo(0, "RENDER_ENDPOS", SECONDS, true)
+    reaper.GetSetProjectInfo(0, "RENDER_TAILFLAG", 0, true)
+    target = OUT .. "/" .. NAME .. ".wav"
+    os.remove(target); os.remove((target:gsub("%.wav$", ".bounce.wav")))
+    reaper.Main_SaveProjectEx(0, OUT .. "/" .. NAME .. "_test.RPP", 0)
+    local t0 = reaper.time_precise()
+    local rc = reaper.ASAF_ExportProject(target, false)
+    L(string.format("ASAF_ExportProject -> %d after %.2f s", rc, reaper.time_precise() - t0))
+    if rc ~= 0 then problem("ASAF_ExportProject failed (see the stderr log)") end
+    return
+  end
+  local nch = sceneCh + NOBJ + 8
+  local advised = reaper.ASAF_RenderChannels and reaper.ASAF_RenderChannels() or -1
+  L("ASAF_RenderChannels ->", advised)
+  if advised ~= nch then problem("the render panel would advise", advised, "channels; the session needs", nch) end
   reaper.SetOnlyTrackSelected(bus)
   reaper.GetSetProjectInfo(0, "RENDER_SETTINGS", 3, true)   -- stems, selected tracks only
   reaper.GetSetProjectInfo(0, "RENDER_BOUNDSFLAG", 0, true) -- custom time bounds
@@ -175,7 +247,7 @@ local function render()
   local _, bs = reaper.get_config_var_string("renderbsnew")
   L("render block size (renderbsnew):", bs)
   os.remove(target); os.remove((target:gsub("%.wav$", ".bounce.wav")))
-  reaper.Main_SaveProjectEx(0, OUT .. "/reaper_export_test.RPP", 0)
+  reaper.Main_SaveProjectEx(0, OUT .. "/" .. NAME .. "_test.RPP", 0)
   local t0 = reaper.time_precise()
   reaper.Main_OnCommand(42230, 0) -- render with the most recent settings, close the dialog when done
   L(string.format("render returned after %.2f s", reaper.time_precise() - t0))
@@ -192,10 +264,20 @@ local function finish()
     local size = f:seek("end"); f:close()
     L("output:", target, size, "bytes")
   end
-  reaper.Main_SaveProjectEx(0, OUT .. "/reaper_export_test.RPP", 0)
+  reaper.Main_SaveProjectEx(0, OUT .. "/" .. NAME .. "_test.RPP", 0)
   L(problems == 0 and "DONE" or ("DONE with " .. problems .. " problem(s)"))
   if log then log:close(); log = nil end
-  if QUIT then reaper.Main_OnCommand(40004, 0) end -- File: Quit
+  if QUIT then
+    -- The plug-ins can report a late parameter change after the save above, and REAPER then asks about
+    -- saving at quit, which hangs an unattended run. Let things settle, save again, quit straight away.
+    local t = reaper.time_precise()
+    local function quit()
+      if reaper.time_precise() - t < 1.5 then reaper.defer(quit); return end
+      reaper.Main_SaveProjectEx(0, OUT .. "/" .. NAME .. "_test.RPP", 0)
+      reaper.Main_OnCommand(40004, 0) -- File: Quit
+    end
+    quit()
+  end
 end
 
 -- Leave time between the stages: plug-ins load, and apply parameters, on REAPER's main loop.

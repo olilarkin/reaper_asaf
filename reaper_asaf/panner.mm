@@ -197,3 +197,18 @@ void ASAF_SetPannerDocked(bool docked)
   ASAF_ClosePanner();
   openPanner();
 }
+
+bool ASAF_ChooseExportFile(const char *defaultName, std::string &path, bool &apac)
+{
+  NSSavePanel *panel = [NSSavePanel savePanel];
+  panel.title = @"ASAF: Export project";
+  panel.allowedFileTypes = @[ @"wav" ];
+  panel.nameFieldStringValue = @(defaultName ? defaultName : "ASAF export");
+  NSButton *apacBox = [NSButton checkboxWithTitle:@"Also create an APAC file (.mp4)" target:nil action:nil];
+  [apacBox sizeToFit];
+  panel.accessoryView = apacBox;
+  if ([panel runModal] != NSModalResponseOK || !panel.URL) return false;
+  path = panel.URL.path.UTF8String;
+  apac = apacBox.state == NSControlStateValueOn;
+  return true;
+}

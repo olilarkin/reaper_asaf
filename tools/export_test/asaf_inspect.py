@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Reads the object metadata back out of an ASAF export, so it can be checked against what was set.
 
-  asaf_inspect.py FILE [--expect] [--packets]
+  asaf_inspect.py FILE [--expect] [--packets] [--scene=SOURCE.wav]
 
 FILE is either an ASAF BWF (after conversion) or a bounce file (before conversion: object audio
 channels followed by ASAF Export's metadata channels). For both it reports where each object is over
@@ -9,6 +9,8 @@ time, which is what "the export has object metadata" comes down to.
 
   --expect    check the file against the scenario built by export_test.mm / reaper_export_test.lua
               and exit non-zero if it differs
+  --scene=F   the file should start with one ambisonic scene whose audio is that of F (a 48 kHz
+              32-bit float WAV with (order+1)^2 channels), followed by the --expect objects if given
   --packets   also print one line per metadata packet
 
 What the file contains, as far as this needs it (worked out from files made by ASAF Export 2.1.8; not
@@ -23,10 +25,16 @@ a published format):
   * A packet holds an 'apsd' (session) and an 'apdd' (per-block) section. 'apdd' has one 346-bit
     record per object: a 7-bit object number, and azimuth, elevation and distance as big-endian
     floats 86, 118 and 150 bits in.
+  * Ambisonic scenes come first, in the metadata and in the audio channels: a 239-bit record each in
+    'apdd', ahead of the objects' records, and (order+1)^2 audio channels each ahead of the objects'
+    channels. 'apsd' has a 104-bit header, then about 160 bits per scene and 157-158 bits per object, which is
+    how the two kinds of record are told apart here. A scene's rotation, gain and spatial filters are
+    applied to its audio by ASAF Scene and do not appear in the metadata.
 """
 import array, cmath, math, struct, sys
 
 RECORD_BITS, AZ, EL, DIST = 346, 86, 118, 150
+SCENE_BITS, APSD_HEADER, APSD_SCENE, APSD_OBJECT = 239, 104, 160, 158
 SYNC = 0xAAAA
 BLOCK = 1024
 
@@ -67,22 +75,40 @@ def bits_of(b):
     return "".join(format(x, "08b") for x in b)
 
 
-def decode_packet(p):
-    """-> list of (object number, azimuth, elevation, distance), or None if the layout isn't recognised."""
-    i = p.find(b"apdd")
+def section(p, tag):
+    """-> the bytes of a packet section after its two-byte header, or None."""
+    i = p.find(tag)
     if i < 0 or i + 8 > len(p):
         return None
     length = struct.unpack(">H", p[i + 4:i + 6])[0]
-    body = bits_of(p[i + 8:i + 6 + length])
-    n = (len(body) + 7) // RECORD_BITS  # the last record's tail is not stored in full
-    if n < 1 or (n * RECORD_BITS + 7) // 8 != length - 2 and n * RECORD_BITS // 8 != length - 2:
+    # the length field wraps in large packets (hundreds of objects): the section really runs to the
+    # next one, or to the end of the packet
+    nxt = min((j for j in (p.find(t, i + 4) for t in (b"apsd", b"apdd")) if j > 0), default=len(p))
+    while length + 0x1000 <= nxt - (i + 6):
+        length += 0x1000
+    return p[i + 8:i + 6 + length]
+
+
+def decode_packet(p):
+    """-> (number of scenes, list of (object number, azimuth, elevation, distance)), or None if the
+    layout isn't recognised."""
+    dd, sd = section(p, b"apdd"), section(p, b"apsd")
+    if dd is None:
         return None
+    fits = lambda bits, nbytes: (bits + 7) // 8 == nbytes or bits // 8 == nbytes  # the tail is not always stored in full
+    # the sizes in 'apsd' are only roughly constant, so it picks between candidates rather than gating them
+    found = [(scenes, n) for scenes in range(0, 9) for n in range(0, 513)
+             if scenes + n and fits(scenes * SCENE_BITS + n * RECORD_BITS, len(dd))]
+    if not found:
+        return None
+    scenes, n = min(found, key=lambda c: 0 if sd is None else abs(APSD_HEADER + c[0] * APSD_SCENE + c[1] * APSD_OBJECT - 8 * len(sd)))
+    body = bits_of(dd)[scenes * SCENE_BITS:]
     objs = []
     for j in range(n):
         r = body[j * RECORD_BITS:(j + 1) * RECORD_BITS]
         f = lambda o: round(struct.unpack(">f", int(r[o:o + 32], 2).to_bytes(4, "big"))[0], 4)
         objs.append((int(r[:7], 2), f(AZ) + 0.0, f(EL) + 0.0, f(DIST)))
-    return objs
+    return scenes, objs
 
 
 class Report:
@@ -107,6 +133,8 @@ def tone_level(samples, nch, ch, hz, rate, start, count):
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     opts = {a for a in sys.argv[1:] if a.startswith("--")}
+    scene_src = next((a[8:] for a in opts if a.startswith("--scene=")), None)
+    opts = {a for a in opts if not a.startswith("--scene=")}
     if len(args) != 1 or opts - {"--expect", "--packets"}:
         sys.exit(__doc__)
     path = args[0]
@@ -190,15 +218,35 @@ def main():
 
     # ---- object metadata over time
     print("\nObject metadata")
-    decoded = [(t, decode_packet(p)) for t, p in packets]
-    bad = sum(1 for _, d in decoded if d is None)
+    full = [(t, decode_packet(p)) for t, p in packets]
+    bad = sum(1 for _, d in full if d is None)
+    decoded = [(t, None if d is None else d[1]) for t, d in full]
     good = [(t, d) for t, d in decoded if d is not None]
     rep.check(bool(good) and bad == 0, f"packets decode ({len(good)} of {len(packets)})")
     counts = sorted({len(d) for _, d in good})
+    scene_counts = sorted({d[0] for _, d in full if d is not None})
+    n_scenes = scene_counts[0] if len(scene_counts) == 1 else 0
+    scene_ch = 0
     if good:
-        rep.check(counts == [n_audio], f"each packet describes {n_audio} objects, one per audio channel (found: {counts})")
+        if scene_counts != [0]:
+            rep.check(len(scene_counts) == 1 and len(counts) == 1, f"every packet describes the same scenes and objects (scenes: {scene_counts}, objects: {counts})")
+            scene_ch = n_audio - counts[0]
+            order = math.isqrt(max(scene_ch, 0)) - 1
+            if n_scenes == 1:
+                rep.check(scene_ch > 0 and (order + 1) ** 2 == scene_ch,
+                          f"1 scene and {counts[0]} objects account for the {n_audio} audio channels (leaves {scene_ch} for the scene: order {order})")
+                print(f"  scene 1: order {order}, channels 1-{scene_ch}; objects on channels {scene_ch + 1}-{n_audio}" if counts[0] else f"  scene 1: order {order}, channels 1-{scene_ch}")
+            else:
+                print(f"  {n_scenes} scenes sharing {scene_ch} channels, then {counts[0]} objects")
+        else:
+            rep.check(counts == [n_audio], f"each packet describes {n_audio} objects, one per audio channel (found: {counts})")
         numbers = sorted({tuple(o[0] for o in d) for _, d in good})
-        rep.check(numbers == [tuple(range(len(numbers[0])))], f"object numbers are 0..n-1 in order (found: {[list(x) for x in numbers[:3]]})")
+        if numbers[0]:
+            first = numbers[0][0]
+            # the number is a 7-bit field, so it wraps in files with more than 128 scenes and objects
+            want = tuple((first + k) % 128 for k in range(len(numbers[0])))
+            shown = [list(x[:8]) + (["..."] if len(x) > 8 else []) for x in numbers[:3]]
+            rep.check(numbers == [want], f"object numbers are consecutive, in order{' (wrapping at 128)' if first + len(want) > 128 else ''} (found: {shown})")
     tracks = {}
     for t, d in good:
         for k, (num, az, el, dist) in enumerate(d):
@@ -225,12 +273,13 @@ def main():
         seconds = 4.0
         rep.check(rate == 48000, "48 kHz")
         rep.check(abs(frames - seconds * rate) <= BLOCK, f"{seconds:g} s long ({frames} frames)")
-        rep.check(n_audio >= 4, f"at least 4 object channels ({n_audio})")
+        n_obj_ch = n_audio - scene_ch
+        rep.check(n_obj_ch >= 4, f"at least 4 object channels ({n_obj_ch})")
         start, count = min(rate // 2, max(0, frames - 8192)), min(8192, frames)
-        for k in range(min(n_audio, 4)):
-            lv = [tone_level(samples, nch, c, 220.0 * (k + 1), rate, start, count) for c in range(n_audio)]
-            best = max(range(n_audio), key=lambda c: lv[c])
-            rep.check(best == k and abs(lv[k] + 12.04) < 0.5, f"channel {k + 1} carries object {k + 1}'s {220 * (k + 1)} Hz tone at -12 dB (loudest on channel {best + 1}, {lv[best]:.1f} dB)")
+        for k in range(min(n_obj_ch, 4)):
+            lv = [tone_level(samples, nch, c, 220.0 * (k + 1), rate, start, count) for c in range(scene_ch, n_audio)]
+            best = max(range(n_obj_ch), key=lambda c: lv[c])
+            rep.check(best == k and abs(lv[k] + 12.04) < 0.5, f"channel {scene_ch + k + 1} carries object {k + 1}'s {220 * (k + 1)} Hz tone at -12 dB (loudest on channel {scene_ch + best + 1}, {lv[best]:.1f} dB)")
         want = {0: (90, 0, 1), 1: (-90, 0, 1), 2: (0, 45, 2)}
         for k, (az, el, dist) in want.items():
             tr = tracks.get(k)
@@ -252,6 +301,30 @@ def main():
                                       f"file goes {tr[0][1]:+.1f} -> {tr[-1][1]:+.1f})")
             steps = sum(1 for a, b in zip(tr, tr[1:]) if a[1] != b[1])
             rep.check(steps >= 0.9 * (len(tr) - 1), f"and it is updated every block ({steps} of {len(tr) - 1} blocks)")
+
+    if scene_src:
+        print("\nExpected scene")
+        _, sch = read_chunks(scene_src)
+        sfmt = chunk(scene_src, sch, b"fmt ")
+        _, src_ch, src_rate, _, _, src_bps = struct.unpack("<HHIIHH", sfmt[:16])
+        rep.check(n_scenes == 1, f"the metadata describes one scene (found {n_scenes})")
+        rep.check(scene_ch == src_ch, f"the scene has the source's {src_ch} channels (found {scene_ch})")
+        if scene_ch == src_ch and src_bps == 32:
+            n = min(frames, sch[b"data"][1] // (src_ch * 4))
+            with open(scene_src, "rb") as f:
+                f.seek(sch[b"data"][0])
+                src = array.array("f")
+                src.frombytes(f.read(n * src_ch * 4))
+            worst = []
+            for c in range(src_ch):
+                x, y = src[c::src_ch], samples[c:n * nch:nch]
+                sxx, syy = sum(v * v for v in x), sum(v * v for v in y)
+                sxy = sum(a * b for a, b in zip(x, y))
+                diff = max(abs(a - b) for a, b in zip(x, y))
+                worst.append((1.0 if diff < 1e-6 else sxy / (math.sqrt(sxx * syy) + 1e-30), diff, c))  # identical counts, even if silent
+            corr, diff, c = min(worst)
+            rep.check(corr > 0.999, f"channels 1-{src_ch} carry the source's audio, in order (lowest correlation {corr:.4f} on channel {c + 1}, "
+                                                f"largest difference {max(w[1] for w in worst):.6f})")
 
     print(f"\n{'OK' if not rep.failures else str(rep.failures) + ' CHECK(S) FAILED'}")
     return 1 if rep.failures else 0

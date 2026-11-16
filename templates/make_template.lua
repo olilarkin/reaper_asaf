@@ -3,6 +3,7 @@
 --
 -- Run inside REAPER with reaper_asaf and ASAF.clap installed. Settings come from the environment:
 --   ASAF_TEMPLATE_OBJECTS = 64 | 128 | 192 | 256      ASAF_TEMPLATE_OUT = path of the .RPP to write
+--   ASAF_TEMPLATE_LOG = path of a log                 ASAF_TEMPLATE_QUIT = 1 to quit REAPER when done
 --
 -- Structure and plug-in settings were read out of the Pro Tools templates.
 
@@ -50,6 +51,13 @@ local function send(src, dst, nch, dstChan)
   reaper.SetTrackSendInfo_Value(src, 0, s, "I_MIDIFLAGS", 31)
 end
 
+-- Marks a track as part of the export for "ASAF: Export project", which renders the marked tracks
+-- separately and joins them (together they have more channels than one REAPER track can carry):
+-- order in the file, number of audio channels, and whether the track has ASAF Export's metadata.
+local function exportPart(tr, order, channels, metadata)
+  reaper.GetSetMediaTrackInfo_String(tr, "P_EXT:ASAF_EXPORT", string.format("%d:%d:%d", order, channels, metadata and 1 or 0), true)
+end
+
 local function color(tr, r, g, b) reaper.SetTrackColor(tr, reaper.ColorToNative(r, g, b)) end
 
 reaper.Undo_BeginBlock()
@@ -67,6 +75,7 @@ for b = 0, blocks - 1 do
   local bus = track(string.format("ASAF Objects %d-%d", a, z), 64, false, 1)
   color(bus, 90, 150, 110)
   objectBus[b] = bus
+  exportPart(bus, b + 1, 64, false)   -- after the scene, in object order
   for n = a, z do
     local tr = track("Object " .. n, 2, true, n == z and -1 or 0)
     reaper.SetMediaTrackInfo_Value(tr, "C_MAINSEND_OFFS", n - a)   -- channel of the folder bus
@@ -98,6 +107,7 @@ local sceneFolder = track("ASAF 7OA", 2, false, 1)
 color(sceneFolder, 80, 120, 170)
 local scene = track("Scene 1", 64, false, -1)
 inStep(scene)
+exportPart(scene, 0, 64, false)       -- ASAF Export lists scenes before objects
 do
   local fx = unit(scene, "ASAF Scene")
   set(scene, fx, "Order", 7)
@@ -134,6 +144,41 @@ local export = track("ASAF Export", 12, false)
 color(export, 200, 70, 70)
 inStep(export)
 unit(export, "ASAF Export")
+exportPart(export, 1000, 0, true)     -- its 8 outputs, on the track's first channels, are the metadata
+
+-- Project notes (File > Project settings > Notes): how the project is laid out and how to export it.
+reaper.GetSetProjectNotes(0, true, table.concat({
+  string.format("ASAF - Up to %d Objects + 1 Scene", N),
+  "Modelled on Apple's Pro Tools session template of the same name. Needs ASAF.clap, the reaper_asaf",
+  "extension and Apple's ASAF audio units. Keep the project at 48 kHz.",
+  "",
+  "OBJECTS",
+  string.format("Put mono audio on the \"Object 1\" to \"Object %d\" tracks. Each has an ASAF Object plug-in:", N),
+  "position it there, or with the ASAF Panner track's plug-in, and automate it as usual.",
+  "Unused object tracks can stay; they are exported silent.",
+  "",
+  "SCENE",
+  "\"Scene 1\" is a 64-channel, 7th-order ambisonic bus (ACN/SN3D). Put ambisonic audio on it or send",
+  "to it. For a lower order, use the first (order+1)^2 channels and set Order in its ASAF Scene plug-in.",
+  "Objects set to \"Convert To HOA\" are folded into the scene by the \"ASAF Objects > Scene\" tracks.",
+  "",
+  "MONITORING",
+  "The \"ASAF Binaural Renderers\" folder renders the objects and the scene to stereo on the master.",
+  "It is for listening only and is not part of the export.",
+  "",
+  "EXPORT",
+  "Use Extensions > ASAF > Export project... (not File > Render: the project has more channels than",
+  "one REAPER track can carry). It writes an ASAF Broadcast Wave file and, optionally, APAC.",
+  string.format("The file has %d channels: 64 scene, %d objects and 8 metadata.", 64 + N + 8, N),
+  "Apple's APAC encoder drops channels in large projects; the Broadcast Wave file keeps them all.",
+  "",
+  "DON'T",
+  "- rename \"Scene 1\", the \"ASAF Objects a-b\" folders or \"ASAF Export\", or change their channel counts",
+  "- change an ASAF Object's Index, or the routing between these tracks",
+  "- turn anticipative FX back on for the object, scene, converter or export tracks (it makes",
+  "  automation land early in the export)",
+  "- open a second project that has ASAF Export in another tab",
+}, "\n"))
 
 reaper.PreventUIRefresh(-1)
 reaper.TrackList_AdjustWindows(false)
@@ -174,6 +219,7 @@ local function step()
     if OUT then reaper.Main_SaveProjectEx(0, OUT, 0); L("saved", OUT) end
     L(problems == 0 and "DONE OK" or ("DONE with " .. problems .. " problems"))
     if log then log:close() end
+    if os.getenv("ASAF_TEMPLATE_QUIT") == "1" then reaper.Main_OnCommand(40004, 0) end -- File: Quit
     return
   end
   reaper.defer(step)

@@ -27,6 +27,15 @@
 #define REAPERAPI_WANT_TrackFX_SetParam
 #define REAPERAPI_WANT_TrackFX_EndParamEdit
 #define REAPERAPI_WANT_TrackFX_SetPinMappings
+#define REAPERAPI_WANT_TrackFX_GetPinMappings
+#define REAPERAPI_WANT_GetMediaTrackInfo_Value
+#define REAPERAPI_WANT_IsTrackSelected
+#define REAPERAPI_WANT_SetTrackSelected
+#define REAPERAPI_WANT_Main_OnCommand
+#define REAPERAPI_WANT_GetSetProjectInfo
+#define REAPERAPI_WANT_GetSetProjectInfo_String
+#define REAPERAPI_WANT_GetProjectPath
+#define REAPERAPI_WANT_GetProjectName
 #define REAPERAPI_WANT_TrackFX_GetIOSize
 #define REAPERAPI_WANT_CreateTrackSend
 #define REAPERAPI_WANT_SetTrackSendInfo_Value
@@ -93,6 +102,8 @@ static inline int findFXParam(MediaTrack *tr, int fx, const char *rawId)
 // panner.mm
 void ASAF_TogglePanner(HINSTANCE hInst);
 void ASAF_ClosePanner();
+// Save dialog for "Export project", with an APAC checkbox. False if cancelled.
+bool ASAF_ChooseExportFile(const char *defaultName, std::string &path, bool &apac);
 bool ASAF_PannerVisible();
 bool ASAF_PannerDocked();
 void ASAF_SetPannerDocked(bool docked); // re-creates the window in or out of REAPER's docker

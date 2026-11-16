@@ -256,7 +256,7 @@ bool convertBounceToASAFAndAPAC(const char *path, std::string *err, std::string 
   if (rc != 1) {
     shim().SetParam(kExport, "createAPACFile", 0.f, 0);
     return fallback(rc == -1 ? "APAC export needs REAPER running natively on Apple silicon."
-                  : rc == -2 ? "APAC export only supports ASAF Export v2.1.8; a different version is installed."
+                  : rc == -2 ? "APAC export only supports ASAF Export v2.1.8 and v2.1.13; a different version is installed."
                              : "APAC export is not available with this ASAF Export plug-in.");
   }
 

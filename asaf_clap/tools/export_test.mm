@@ -31,6 +31,10 @@
 //   --audio FILE       audio for the next object instead of a tone: mono 48 kHz 32-bit float WAV
 //   --set NAME=VALUE   set a parameter on every ASAF Object, e.g. --set Reverb=1 --set "Reverb Mix=70"
 //   --session NAME=VALUE  set a session parameter through an ASAF Panner, e.g. --session "Reverb Preset=8"
+//   --scene FILE       add an ambisonic scene, on the channels before the objects: 48 kHz 32-bit float WAV, ACN order, with
+//                      1/4/9/16/.../64 channels (order 0-7). Use --objects 0 for a scene on its own.
+//   --scene-set NAME=VALUE  set a parameter on the ASAF Scene
+//   --params ID        list the parameters of a plug-in (e.g. com.asafbridge.scene) and exit
 //   --sweep N,T0,T1    object N's azimuth is automated -90 -> +90 between T0 and T1 seconds
 //                      (default 4,0,<seconds>; with --pos, no object is automated unless this is given)
 #import <Foundation/Foundation.h>
@@ -89,8 +93,8 @@ struct Instance {
   }
 };
 
-// Mono 32-bit float WAV -> samples (empty if it isn't one).
-static std::vector<float> readMonoFloatWav(const char *path)
+// 48 kHz 32-bit float WAV -> interleaved samples (empty if it isn't one). *channels gets the channel count.
+static std::vector<float> readFloatWav(const char *path, int *channels)
 {
   std::vector<float> out; FILE *f = fopen(path, "rb"); if (!f) return out;
   char hdr[12], id[4]; uint32_t sz; bool fmtOk = false;
@@ -100,7 +104,7 @@ static std::vector<float> readMonoFloatWav(const char *path)
         std::vector<uint8_t> b(sz); if (fread(b.data(), sz, 1, f) != 1) break;
         uint16_t tag, ch, bits; uint32_t rate; memcpy(&tag, &b[0], 2); memcpy(&ch, &b[2], 2); memcpy(&rate, &b[4], 4); memcpy(&bits, &b[14], 2);
         if (tag == 0xFFFE && sz >= 26) memcpy(&tag, &b[24], 2);
-        fmtOk = tag == 3 && ch == 1 && rate == 48000 && bits == 32;
+        fmtOk = tag == 3 && ch >= 1 && rate == 48000 && bits == 32; *channels = ch;
         if (sz & 1) fseek(f, 1, SEEK_CUR);
       } else if (!memcmp(id, "data", 4)) {
         if (fmtOk) { out.resize(sz / 4); out.resize(fread(out.data(), 4, out.size(), f)); }
@@ -110,6 +114,7 @@ static std::vector<float> readMonoFloatWav(const char *path)
   fclose(f);
   return out;
 }
+static std::vector<float> readMonoFloatWav(const char *path) { int ch = 0; std::vector<float> a = readFloatWav(path, &ch); if (ch != 1) a.clear(); return a; }
 
 static void pump(double s) { [[NSRunLoop mainRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:s]]; }
 
@@ -120,7 +125,8 @@ int main(int argc, char **argv) { @autoreleasepool {
   struct Pos { double az, el, dist; };
   std::vector<Pos> pos = { { 90, 0, 1 }, { -90, 0, 1 }, { 0, 45, 2 }, { -90, 0, 1 } }; bool posGiven = false;
   std::vector<std::vector<float>> audio;
-  std::vector<std::pair<std::string, double>> objSet, sessionSet;
+  std::vector<std::pair<std::string, double>> objSet, sessionSet, sceneSet;
+  std::vector<float> scene; int sceneCh = 0; const char *listParams = nullptr;
   for (int i = 3; i < argc; i++) {
     const std::string a = argv[i]; const char *v = i + 1 < argc ? argv[i + 1] : "";
     if (a == "--objects") { nobj = atoi(v); i++; } else if (a == "--block") { N = (uint32_t)atoi(v); i++; }
@@ -128,15 +134,21 @@ int main(int argc, char **argv) { @autoreleasepool {
     else if (a == "--seconds") { seconds = atof(v); i++; }
     else if (a == "--pos") { if (!posGiven) pos.clear(); posGiven = true; Pos p = { 0, 0, 1 }; sscanf(v, "%lf,%lf,%lf", &p.az, &p.el, &p.dist); pos.push_back(p); nobj = (int)pos.size(); i++; }
     else if (a == "--audio") { audio.push_back(readMonoFloatWav(v)); if (audio.back().empty()) { printf("%s: not a mono 48 kHz 32-bit float WAV\n", v); return 2; } i++; }
-    else if (a == "--set" || a == "--session") {
+    else if (a == "--scene") {
+      scene = readFloatWav(v, &sceneCh); const int order = (int)lround(sqrt((double)sceneCh)) - 1;
+      if (scene.empty() || order < 0 || order > 7 || (order + 1) * (order + 1) != sceneCh) { printf("%s: not a 48 kHz 32-bit float WAV with (order+1)^2 channels\n", v); return 2; }
+      i++;
+    }
+    else if (a == "--params") { listParams = v; i++; }
+    else if (a == "--set" || a == "--session" || a == "--scene-set") {
       const char *eq = strchr(v, '='); if (!eq) { printf("%s needs NAME=VALUE\n", a.c_str()); return 2; }
-      (a == "--set" ? objSet : sessionSet).push_back({ std::string(v, eq - v), atof(eq + 1) }); i++;
+      (a == "--set" ? objSet : a == "--session" ? sessionSet : sceneSet).push_back({ std::string(v, eq - v), atof(eq + 1) }); i++;
     }
     else if (a == "--sweep") { sweepGiven = true; sscanf(v, "%d,%lf,%lf", &sweepObj, &sweepT0, &sweepT1); sweepObj--; i++; }
     else if (a == "--stopped") transport = kStopped; else if (a == "--no-transport") transport = kNone; else if (a == "--apac") apac = true;
     else { printf("unknown option %s\n", a.c_str()); return 2; }
   }
-  const int kMeta = 8, kRate = 48000, NCH = nobj + kMeta;
+  const int kMeta = 8, kRate = 48000, nAudio = nobj + sceneCh, NCH = nAudio + kMeta, sceneOrder = (int)lround(sqrt((double)sceneCh)) - 1;
   const int64_t total = (int64_t)(seconds * kRate);
   if (posGiven && !sweepGiven) sweepObj = -1;
   if (sweepT1 < 0) sweepT1 = seconds;
@@ -155,7 +167,16 @@ int main(int argc, char **argv) { @autoreleasepool {
   s.GetParam = (int (*)(uint32_t, const char *, float *))dlsym(h, "ASAFShim_GetParam"); s.ExportPressConvert = (int (*)(void))dlsym(h, "ASAFShim_ExportPressConvert");
   if (!s.ok()) { printf("ASAF.clap has no control API\n"); return 1; }
 
-  std::vector<Instance> objs(nobj); Instance ex;
+  if (listParams) {
+    Instance x; if (!x.make(f, listParams, N)) { printf("could not create %s\n", listParams); return 1; }
+    pump(0.3);
+    for (uint32_t i = 0; i < x.params->count(x.p); i++) {
+      clap_param_info_t pi; x.params->get_info(x.p, i, &pi); double v = NAN; x.params->get_value(x.p, pi.id, &v);
+      printf("%s%s%s [%g..%g] = %g\n", pi.module, pi.module[0] ? "/" : "", pi.name, pi.min_value, pi.max_value, v);
+    }
+    printf("%zu inputs, %zu outputs\n", x.in.size(), x.out.size()); fflush(stdout); _exit(0);
+  }
+  std::vector<Instance> objs(nobj); Instance ex, sc;
   for (int i = 0; i < nobj; i++) if (!objs[i].make(f, "com.asafbridge.object", N)) { printf("could not create ASAF Object %d\n", i + 1); return 1; }
   if (!ex.make(f, "com.asafbridge.export", N)) { printf("could not create ASAF Export\n"); return 1; }
   pump(0.3);
@@ -168,6 +189,13 @@ int main(int argc, char **argv) { @autoreleasepool {
     objs[i].flush();
   }
   for (auto &kv : objSet) for (int i = 0; i < nobj; i++) { objs[i].set(kv.first.c_str(), kv.second); objs[i].flush(); }
+  if (sceneCh) {
+    if (!sc.make(f, "com.asafbridge.scene", N)) { printf("could not create ASAF Scene\n"); return 1; }
+    pump(0.3);
+    sc.set("Index", 0); sc.flush(); pump(0.05);
+    sc.set("Order", sceneOrder); sc.flush();
+    for (auto &kv : sceneSet) { sc.set(kv.first.c_str(), kv.second); sc.flush(); }
+  }
   Instance panner;
   if (!sessionSet.empty()) {
     if (!panner.make(f, "com.asafbridge.panner", N)) { printf("could not create ASAF Panner\n"); return 1; }
@@ -179,6 +207,7 @@ int main(int argc, char **argv) { @autoreleasepool {
   for (auto &kv : sessionSet) printf("session parameter %s = %g (panner reports %g)\n", kv.first.c_str(), kv.second, panner.get(kv.first.c_str()));
   for (int i = 0; i < nobj; i++)
     printf("object %d before render: index %g azimuth %+g elevation %+g distance %g\n", i + 1, objs[i].get("Index"), objs[i].get("Azimuth"), objs[i].get("Elevation"), objs[i].get("Distance"));
+  if (sceneCh) printf("scene before render: index %g order %g (%d channels)\n", sc.get("Index"), sc.get("Order"), sceneCh);
   const clap_id azId = sweepObj >= 0 ? objs[sweepObj].paramId("Azimuth") : CLAP_INVALID_ID;
 
   std::string err;
@@ -186,11 +215,17 @@ int main(int argc, char **argv) { @autoreleasepool {
   asaf::BounceWriter w; if (!w.open(out.c_str(), NCH, kRate)) { printf("could not write %s\n", out.c_str()); return 1; }
 
   __block double metaPeak = 0; __block bool done = false;
-  Instance *po = objs.data(), *pe = &ex, *pp = &panner; asaf::BounceWriter *pw = &w;
+  Instance *po = objs.data(), *pe = &ex, *pp = &panner, *ps = &sc; const std::vector<float> *pscene = &scene; asaf::BounceWriter *pw = &w;
   void (^render)(void) = ^{
     std::vector<std::vector<double>> db(NCH, std::vector<double>(N)); std::vector<double *> ptrs(NCH); for (int c = 0; c < NCH; c++) ptrs[c] = db[c].data();
     for (int64_t pos = 0; pos < total; pos += N) {
       const uint32_t n = (uint32_t)std::min<int64_t>(N, total - pos);
+      if (sceneCh) { // ASAF Export lists scenes before objects, so the scene's channels come first
+        const int64_t frames = (int64_t)pscene->size() / sceneCh;
+        for (int c = 0; c < sceneCh; c++) for (uint32_t k = 0; k < n; k++) ps->in[c][k] = pos + k < frames ? (*pscene)[(pos + k) * sceneCh + c] : 0.f;
+        ps->process(n, transport);
+        for (int c = 0; c < sceneCh; c++) for (uint32_t k = 0; k < n; k++) db[c][k] = ps->out[c][k];
+      }
       for (int i = 0; i < nobj; i++) {
         const double hz = 220.0 * (i + 1);
         if (i < (int)paudio->size()) { const std::vector<float> &a = (*paudio)[i]; for (uint32_t k = 0; k < n; k++) po[i].in[0][k] = pos + k < (int64_t)a.size() ? a[pos + k] : 0.f; }
@@ -198,13 +233,13 @@ int main(int argc, char **argv) { @autoreleasepool {
         if (i == sweepObj) // automation, once per block
           po[i].set(azId, -90.0 + 180.0 * std::min(1.0, std::max(0.0, ((double)pos / kRate - sweepT0) / (sweepT1 - sweepT0))));
         po[i].process(n, transport);
-        for (uint32_t k = 0; k < n; k++) db[i][k] = po[i].out[0][k];
+        for (uint32_t k = 0; k < n; k++) db[sceneCh + i][k] = po[i].out[0][k];
       }
       if (pp->p) pp->process(n, transport); // the panner, if there is one, runs alongside as it would on its own track
       // like REAPER's default pin mapping: ASAF Export's inputs are the first channels of the bus
-      for (size_t c = 0; c < pe->in.size(); c++) for (uint32_t k = 0; k < n; k++) pe->in[c][k] = (int)c < nobj ? (float)db[c][k] : 0.f;
+      for (size_t c = 0; c < pe->in.size(); c++) for (uint32_t k = 0; k < n; k++) pe->in[c][k] = (int)c < nAudio ? (float)db[c][k] : 0.f;
       pe->process(n, transport);
-      for (int c = 0; c < kMeta; c++) for (uint32_t k = 0; k < n; k++) { const float v = pe->out[c][k]; db[nobj + c][k] = v; if (fabsf(v) > metaPeak) metaPeak = fabsf(v); }
+      for (int c = 0; c < kMeta; c++) for (uint32_t k = 0; k < n; k++) { const float v = pe->out[c][k]; db[nAudio + c][k] = v; if (fabsf(v) > metaPeak) metaPeak = fabsf(v); }
       pw->write(ptrs.data(), (int)n, NCH, 0, 1);
       if (mode == "realtime") usleep((useconds_t)(1e6 * n / kRate));
     }
